@@ -4,7 +4,7 @@ This project rocks and uses MIT-LICENSE.
 
 == Steps to hook the base_indexer engine in your app
 * Generate new rails app
-_rails new my_indexer_app_
+<em>rails new my_indexer_app<em>
 
 *Edit Gemfile and add the base_indexer gem name
 _gem 'base_indexer'_
