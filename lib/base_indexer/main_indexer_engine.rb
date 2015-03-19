@@ -64,7 +64,7 @@ module BaseIndexer
       
       unless collection_druids.nil? then
         collection_druids.each do |cdruid|
-          cname = BaseIndexer::Collections.get_collection_name(cdruid)
+          cname = BaseIndexer::Collection.get_collection_name(cdruid)
           collection_names[cdruid] = cname unless cname.nil? 
         end
       end

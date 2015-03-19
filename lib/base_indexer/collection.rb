@@ -1,5 +1,5 @@
 module BaseIndexer
-  class Collections
+  class Collection
     def self.get_collection_name(collection_druid)
       
       collection_name = get_from_cahce(collection_druid)
