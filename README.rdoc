@@ -1,3 +1,44 @@
 = BaseIndexer
 
 This project rocks and uses MIT-LICENSE.
+
+== Steps to hook the base_indexer engine in your app
+Generate new rails app
+rails new my_indexer_app
+
+Edit Gemfile and add the base_indexer gem name
+
+gem 'base_indexer'
+
+Run bundle install to download the gem
+
+bundle install
+
+Mount the engine in your favorite domain.
+
+mount BaseIndexer::Engine, at: '/items'
+
+Basic configuration
+
+The engine is looking for the following values 
+
+config.solr_config_file_path = "#{config.root}/config/solr.yml"
+DiscoveryIndexer::PURL_DEFAULT='http://purl.stanford.edu/'
+
+
+Advanced features
+The engine gives the developer the ability to extend any of its classes
+
+To extend any of indexer features (purl-reader, mods-reader, mapper, solr-writer)
+
+1. Create a new class that inherits from BaseIndexer::MainIndexerEngine
+2. Create a new file named config/initializers/base_indexer.rb
+3. In this file, add the following line. replace 'MyIndexerClassName' with the fully qualifed actual class name. The name should be between double qoutes
+BaseIndexer.indexer_class = "MyIndexerClassName"
+4. In the new indexer class, you can override any of the functions that you need to change its implementation. For example, if you need to use a new mapper, you will override map function.
+
+To extend mapper functionality.
+1. Create a new class e.g., MyMapper that inherits from GeneralMapper or IndexMapper.
+2. Implement MyMapper.map to converts the input to solr doc hash.
+3. Override MyIndexerClassName.map to call your new class instead of the default one.
+
