@@ -3,27 +3,23 @@
 This project rocks and uses MIT-LICENSE.
 
 == Steps to hook the base_indexer engine in your app
-Generate new rails app
-rails new my_indexer_app
+* Generate new rails app
+_rails new my_indexer_app_
 
-Edit Gemfile and add the base_indexer gem name
+*Edit Gemfile and add the base_indexer gem name
+_gem 'base_indexer'_
 
-gem 'base_indexer'
+* Run bundle install to download the gem
+_bundle install_
 
-Run bundle install to download the gem
+* Mount the engine in your favorite domain.
+_mount BaseIndexer::Engine, at: '/items'_
 
-bundle install
-
-Mount the engine in your favorite domain.
-
-mount BaseIndexer::Engine, at: '/items'
-
-Basic configuration
-
+== Basic configuration
 The engine is looking for the following values 
 
-config.solr_config_file_path = "#{config.root}/config/solr.yml"
-DiscoveryIndexer::PURL_DEFAULT='http://purl.stanford.edu/'
+_config.solr_config_file_path = "#{config.root}/config/solr.yml"_
+_DiscoveryIndexer::PURL_DEFAULT='http://purl.stanford.edu/'_
 
 
 Advanced features
