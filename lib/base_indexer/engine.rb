@@ -5,6 +5,7 @@ module BaseIndexer
     config.cache_store = [:memory_store, {:size => 64.megabytes }]
     config.after_initialize do 
           BaseIndexer.solr_configuration_class.constantize.instance.read(Rails.configuration.solr_config_file_path)
+          DiscoveryIndexer::Logging.logger = Rails.logger
     end
   end
 end
