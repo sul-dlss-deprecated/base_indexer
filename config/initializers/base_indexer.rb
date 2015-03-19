@@ -1,0 +1,6 @@
+
+# Define the indexer class that will be used by the engine. 
+# The engine consumer app should override this class
+BaseIndexer.indexer_class = "BaseIndexer::MainIndexerEngine"
+BaseIndexer.solr_configuration_class = "BaseIndexer::SolrConfigurationFromFile"
+#BaseIndexer.solr_configuration_class.constantize.new(Rails.configuration.solr_config_file_path)
