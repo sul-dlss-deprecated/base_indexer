@@ -7,6 +7,9 @@ require "base_indexer/collection"
 require 'discovery-indexer'
 module BaseIndexer
   mattr_accessor :indexer_class
-  mattr_accessor :solr_configuration_class
+  
+  mattr_accessor :mapper_class_name
+  mattr_accessor :solr_writer_class_name
+  mattr_accessor :solr_configuration_class_name
 end
 
