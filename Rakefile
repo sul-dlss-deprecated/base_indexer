@@ -1,39 +1,48 @@
+require 'rspec/core'
+require 'rspec/core/rake_task'
+require 'yard'
+require 'yard/rake/yardoc_task'
+
+Bundler::GemHelper.install_tasks
+
+
 begin
   require 'bundler/setup'
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-require 'rdoc/task'
+APP_RAKEFILE = File.expand_path("../spec/internal/Rakefile", __FILE__)
+load 'rails/tasks/engine.rake'
+Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
 
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'BaseIndexer'
-  rdoc.options << '--line-numbers'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+# Travis ci task
+task :default => :ci  
+desc "run continuous integration suite (tests, coverage, docs)" 
+task :ci => [:rspec, :doc]
+
+# Run rspec
+task :spec => :rspec
+RSpec::Core::RakeTask.new(:rspec) do |spec|
+  spec.rspec_opts = ["-c", "-f progress", "--tty", "-r ./spec/spec_helper.rb"]
 end
 
-APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
-load 'rails/tasks/engine.rake'
+# Use yard to build docs
+begin
+  project_root = File.expand_path(File.dirname(__FILE__))
+  doc_dest_dir = File.join(project_root, 'doc')
 
-Bundler::GemHelper.install_tasks
+  YARD::Rake::YardocTask.new(:doc) do |yt|
+    yt.files = Dir.glob(File.join(project_root, 'lib', '**', '*.rb')) +
+                 [ File.join(project_root, 'README.rdoc') ]
+    yt.options = ['--output-dir', doc_dest_dir, '--readme', 'README.rdoc', '--title', 'Discovery Indexer Documentation']
+  end
+rescue LoadError
+  desc "Generate YARD Documentation"
+  task :doc do
+    abort "Please install the YARD gem to generate rdoc."
+  end
+end  
 
-#require 'rake/testtask'
-
-#Rake::TestTask.new(:test) do |t|
-#  t.libs << 'lib'
-#  t.libs << 'test'
-#  t.pattern = 'test/**/*_test.rb'
-#  t.verbose = false
-#end
 
 
-#task default: :test
-
-Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
-require 'rspec/core'
-require 'rspec/core/rake_task'
-desc "Run all specs in spec directory (excluding plugin specs)"
-RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
-task :default => :spec
