@@ -33,7 +33,7 @@ module BaseIndexer
     end
         
     def report_failure method_symbol, params, e
-      return "#{method_symbol} #{params}\n\n#{e.inspect}\n#{e.cause }\n#{e.backtrace}"
+      return "#{method_symbol} #{params}\n\n#{e.inspect}\n#{e.message}\n#{e.backtrace}"
     end
     
     def report_success
