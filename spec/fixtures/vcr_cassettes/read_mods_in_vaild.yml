@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://purl.stanford.edu//aa111aa1111.mods
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Date:
+      - Mon, 30 Mar 2015 16:28:37 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - a88fd16b-a5b1-4f1f-a6f3-65a2fcd8b43b
+      X-Runtime:
+      - '0.003706'
+      Status:
+      - '404'
+      Content-Length:
+      - '2930'
+      Content-Type:
+      - text/html; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>Stanford Digital Repository</title>
+            <link rel="shortcut icon" href="favicon.ico" />
+            <link href="/assets/site.css" media="screen" rel="stylesheet" />
+          </head>
+          <body>
+            <div id="container">
+              <div id="banner"><h1>Stanford Digital Repository</h1></div>
+              <div id="contents">
+                <div class="dialog">
+          <h2>The item you requested is not available.</h2>
+          <p>The item you requested is not yet available. It will be available at this URL when Library processing is completed.</p>
+        </div>
+
+              </div>
+            </div>
+
+            <div id="footer">
+          <div class="footer-contents">
+            <div class="footer-sul">
+              <div class="footer-logo">
+                <a href="http://library.stanford.edu" target="_blank"><img src="/images/footer-sul-logo.png"></a>
+              </div>
+              <div class="footer-links">
+                <a href="http://library.stanford.edu" target="_blank">Stanford University Libraries</a>
+                <a href="http://searchworks.stanford.edu" target="_blank">SearchWorks</a>
+                <a href="http://library.stanford.edu/ejournals" target="_blank">eJournals</a>
+                <a href="hhttp://library.stanford.edu/myawrap.html" target="_blank">My Account</a>
+                <a href="http://library.stanford.edu/ask" target="_blank">Ask Us</a>
+              </div>
+            </div>
+            <div class="footer-su">
+              <div class="footer-logo">
+                <a href="http://www.stanford.edu" target="_blank"><img src="/images/footer-stanford-logo.png"></a>
+              </div>
+              <div class="footer-links">
+                <a href="http://www.stanford.edu" target="_blank">SU Home</a>
+                <a href="http://visit.stanford.edu/plan/maps.html" target="_blank">Maps &amp; Directions</a>
+                <a href="http://www.stanford.edu/search/" target="_blank">Search Stanford</a>
+                <a href="http://www.stanford.edu/site/terms.html" target="_blank">Terms of Use</a>
+                <a href="http://www.stanford.edu/site/copyright.html" target="_blank">Copyright Complaints</a>
+                </br>&copy; Stanford University, Stanford, California 94305
+              </div>
+            </div>
+          </div>
+        </div>
+            <script src="/assets/jquery.js"></script>
+        <script src="/assets/jquery.truncator.js"></script>
+        <script src="/assets/application.js"></script>
+
+            <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-7219229-11']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+          </body>
+        </html>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 16:28:42 GMT
+recorded_with: VCR 2.9.3

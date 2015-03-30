@@ -1,0 +1,215 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://purl.stanford.edu//ct961sj2730.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Mon, 30 Mar 2015 16:28:36 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"a903fcccc4315a3b94c03b895f74e4cd"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c6ec8f3e-4eef-41cf-b222-42e49de25856
+      X-Runtime:
+      - '0.006261'
+      Status:
+      - '200'
+      Content-Length:
+      - '3325'
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <publicObject id="druid:ct961sj2730" published="2015-01-29T16:57:55-08:00">
+          <identityMetadata>
+            <objectLabel>The Caroline Batchelor Map Collection</objectLabel>
+            <adminPolicy>druid:dd051ys2703</adminPolicy>
+            <objectType>collection</objectType>
+            <objectType>set</objectType>
+            <otherId name="uuid">c49c426e-b573-11e1-8880-022c4a815be0</otherId>
+            <otherId name="catkey">10357851</otherId>
+            <objectId>druid:ct961sj2730</objectId>
+            <objectCreator>DOR</objectCreator>
+            <tag>Remediated By : 4.17.1</tag>
+          </identityMetadata>
+          <xml/>
+          <rightsMetadata>
+            <access type="discover">
+              <machine>
+                <world/>
+              </machine>
+            </access>
+            <access type="read">
+              <machine>
+                <world/>
+              </machine>
+            </access>
+            <use>
+              <human type="useAndReproduction">This item is in the public domain. There are no restrictions on use.</human>
+              <human type="creativeCommons"/>
+            </use>
+            <copyright>
+              <human type="copyright">Content in the public domain with no use restriction.</human>
+            </copyright>
+            <use>
+              <human type="creativeCommons"/>
+              <machine type="creativeCommons"/>
+            </use>
+          </rightsMetadata>
+          <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:Description rdf:about="info:fedora/druid:ct961sj2730">
+            </rdf:Description>
+          </rdf:RDF>
+          <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-schema" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+            <dc:title>Caroline Batchelor Map Collection</dc:title>
+            <dc:contributor>Batchelor, Caroline (collector.)</dc:contributor>
+            <dc:contributor>Arrowsmith, John.</dc:contributor>
+            <dc:contributor>Bartholomew, John, 1805-1861</dc:contributor>
+            <dc:contributor>Bonne, Rigobert, 1727-1794</dc:contributor>
+            <dc:contributor>Migeon, J.</dc:contributor>
+            <dc:contributor>Moll, Herman, -1732</dc:contributor>
+            <dc:contributor>Petermann, A. (August), 1822-1878</dc:contributor>
+            <dc:contributor>Wyld, James, 1812-1887</dc:contributor>
+            <dc:contributor>Justus Perthes (Firm : Gotha, Germany)</dc:contributor>
+            <dc:contributor>Society for the Diffusion of Useful Knowledge (Great Britain)</dc:contributor>
+            <dc:language>eng</dc:language>
+            <dc:format>294 maps, prints and books.</dc:format>
+            <dc:description>This collection of primarily maps with a few prints and books portrays the continent of Africa as well as detailed maps of different regions and countries on the continent. The maps range in date from 1550 to approximately 1800. Individual maps cataloged separately and held at Branner Earth Sciences Library and Map Collections by call number.</dc:description>
+            <dc:coverage>Africa</dc:coverage>
+            <dc:coverage>Egypt</dc:coverage>
+            <dc:coverage>Northern Africa</dc:coverage>
+            <dc:coverage>South Africa</dc:coverage>
+            <dc:coverage>Africa, Southern</dc:coverage>
+            <dc:coverage>Africa, West</dc:coverage>
+          </oai_dc:dc>
+          <ReleaseDigest/>
+        </publicObject>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 16:28:42 GMT
+- request:
+    method: get
+    uri: http://purl.stanford.edu//yz499rr9528.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Mon, 30 Mar 2015 16:28:36 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"27847330464664535ce0f2571f5513d1"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7b9f68fa-a3bf-4fe9-b5ef-1351d6c82763
+      X-Runtime:
+      - '0.049673'
+      Status:
+      - '200'
+      Content-Length:
+      - '2502'
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <publicObject id="druid:yz499rr9528" published="2015-01-21T11:03:00-08:00">
+          <identityMetadata>
+            <objectId>druid:yz499rr9528</objectId>
+            <objectCreator>DOR</objectCreator>
+            <objectLabel>[Richard Maxfield Collection]</objectLabel>
+            <objectType>collection</objectType>
+            <adminPolicy>druid:bz845pv2292</adminPolicy>
+            <otherId name="catkey">8833854</otherId>
+            <otherId name="uuid">054cba8a-daaa-11e2-b0ee-0050569b3c3c</otherId>
+            <tag>Remediated By : 4.15.4</tag>
+          </identityMetadata>
+          <xml/>
+          <rightsMetadata>
+            <access type="discover">
+              <machine>
+                <world/>
+              </machine>
+            </access>
+            <access type="read">
+              <machine>
+                <world/>
+              </machine>
+            </access>
+            <use>
+              <human type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Stanford Archive of Recorded Sound at soundarchive@stanford.edu.</human>
+            </use>
+            <use>
+              <human type="creativeCommons"/>
+              <machine type="creativeCommons"/>
+            </use>
+          </rightsMetadata>
+          <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <rdf:Description rdf:about="info:fedora/druid:yz499rr9528">
+            </rdf:Description>
+          </rdf:RDF>
+          <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-schema" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+            <dc:title>[Richard Maxfield Collection]</dc:title>
+            <dc:title>Maxfield Collection</dc:title>
+            <dc:contributor>Maxfield, Richard, 1927-1969</dc:contributor>
+            <dc:type>Collection</dc:type>
+            <dc:date>1959-1964</dc:date>
+            <dc:language>eng</dc:language>
+            <dc:format>10 open reel tapes (1 box)</dc:format>
+            <dc:description>Open reel tapes by electronic music composer Richard Maxfield containing some of his most well-known works.</dc:description>
+            <dc:rights>Open for research; material must be requested at least two business days in advance of intended use. Contact the Archive for assistance.</dc:rights>
+            <dc:subject>Electronic music</dc:subject>
+          </oai_dc:dc>
+        </publicObject>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 16:28:42 GMT
+recorded_with: VCR 2.9.3
