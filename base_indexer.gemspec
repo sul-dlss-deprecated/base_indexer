@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["aalsum@stanford.edu"]
   s.summary     = "Summary of BaseIndexer."
   s.description = "Description of BaseIndexer."
-  s.license     = "MIT"
+  s.license     = "Apache 2"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   #s.test_files = Dir["test/**/*"]
