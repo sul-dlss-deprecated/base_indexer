@@ -7,7 +7,10 @@ module BaseIndexer
     # Initialize memory store cache with 50 MB size
     config.cache_store = [:memory_store, {:size => 64.megabytes }]
     
-    
+    config.generators do |g|
+      g.test_framework :rspec
+    end
+
     config.after_initialize do
       
       # Reads the SOLR configuration fiel 
