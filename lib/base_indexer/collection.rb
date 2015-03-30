@@ -33,7 +33,7 @@ module BaseIndexer
           purl_model.label
         end
       rescue Exception => e
-        puts e
+        Rails.logger.error "There is a problem in retrieving collection name for #{collection_druid}. #{e.inspect}\n#{e.cause.inspect }\n#{e.backtrace}"
         return nil
       end
     end
