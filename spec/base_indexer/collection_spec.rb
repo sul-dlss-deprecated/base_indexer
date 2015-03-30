@@ -19,10 +19,10 @@ describe BaseIndexer::Collection do
   
   describe ".get_from_purl" do
     it "should return a collection label from purl" do
- #     VCR.use_cassette("get_collection_name_from_purl") do
+      VCR.use_cassette("get_collection_name_from_purl") do
         cname=BaseIndexer::Collection.get_from_purl("ww121ss5000")
         expect(cname).to eq("Walters Manuscripts")
- #     end
+      end
     end
 
     it "should return nil for druid without purl" do
