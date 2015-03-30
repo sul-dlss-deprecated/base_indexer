@@ -71,8 +71,10 @@ module BaseIndexer
     #   {"searchworks"=>true, "revs"=>true}
     def get_targets_hash_from_param(targets)
       targets_hash = {}
-      targets.each do |target|
-        targets_hash[target] = true
+      unless targets.nil? then
+        targets.each do |target|
+          targets_hash[target] = true
+        end
       end
       return targets_hash
     end
