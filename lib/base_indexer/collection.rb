@@ -32,8 +32,8 @@ module BaseIndexer
           Rails.cache.write(collection_druid, purl_model.label, expires_in: 1.hours)
           purl_model.label
         end
-      rescue Exception => e
-        Rails.logger.error "There is a problem in retrieving collection name for #{collection_druid}. #{e.inspect}\n#{e.cause.inspect }\n#{e.backtrace}"
+      rescue => e
+        Rails.logger.error "There is a problem in retrieving collection name for #{collection_druid}. #{e.inspect}\n#{e.cause }\n#{e.backtrace}"
         return nil
       end
     end
