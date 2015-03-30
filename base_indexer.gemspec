@@ -14,10 +14,23 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
- 
-  s.add_dependency "rails", "~> 4.1.9"
+  #s.test_files = Dir["test/**/*"]
+# s.test_files = Dir["spec/**/*"]
+  s.add_dependency "rails", '~> 4.1', '>= 4.1.9'
   s.add_dependency 'discovery-indexer'
 
-  s.add_development_dependency "mysql2"
+  s.add_development_dependency "sqlite3"
+  
+
+  s.add_development_dependency "rspec", "~> 3.1.0" # bug with graph_spec #remove_predicate_and_its_object_statements for 3.2.0
+  s.add_development_dependency "rspec-rails", "~> 3.1.0" # bug with graph_spec #remove_predicate_and_its_object_statements for 3.2.0
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "vcr"
+  s.add_development_dependency "webmock"
+  s.add_development_dependency "coveralls"
+  s.add_development_dependency "yard" # for documentation
+
+  s.add_development_dependency "engine_cart"
+  s.add_development_dependency "jettywrapper"
+
 end

@@ -13,4 +13,3 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem 'discovery-indexer', path: "/Users/aalsum/Documents/CodeWorkspace/discovery_indexer"
