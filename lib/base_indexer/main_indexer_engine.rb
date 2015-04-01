@@ -33,7 +33,7 @@ module BaseIndexer
       collection_names = get_collection_names(purl_model.collection_druids)
       
       # Map the input to solr_doc
-      solr_doc =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_names).map
+      solr_doc =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_names).convert_to_solr_doc
       
       # Get target list
       targets_hash={}
