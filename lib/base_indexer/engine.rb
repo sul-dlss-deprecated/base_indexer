@@ -10,13 +10,13 @@ module BaseIndexer
     config.generators do |g|
       g.test_framework :rspec
     end
-
+    config.app_version = "0.0"
+    config.app_name = "[You have to override this name in your app]"
+ 
     config.after_initialize do
       
       # Reads the SOLR configuration fiel 
       BaseIndexer.solr_configuration_class_name.constantize.instance.read(Rails.configuration.solr_config_file_path ||= 'test')
-      config.app_version = "0.0"
-      config.app_name = "[You have to override this name in your app]"
       
       
       # Initializes the DiscoveryIndexer log with Rails logger, so all the messages will go to 
