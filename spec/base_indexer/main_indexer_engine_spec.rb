@@ -88,6 +88,13 @@ describe BaseIndexer::MainIndexerEngine do
     
   end
   
+  describe ".update_targets_before_write" do
+    it "returns the target_hash as it is" do
+      new_target_hash = BaseIndexer::MainIndexerEngine.new.update_targets_before_write({"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}})
+      expect(new_target_hash).to eq({"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}})
+    end
+  end
+  
   describe ".read_mods" do
     it "should read mods xml for a valid druid" do
       VCR.use_cassette("read_mods_vaild") do

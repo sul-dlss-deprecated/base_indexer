@@ -43,6 +43,8 @@ module BaseIndexer
         targets_hash = get_targets_hash_from_param(targets)
       end
       
+      targets_hash = update_targets_before_write(targets_hash, purl_model)
+      
       # Get SOLR configuration and write
       solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
       BaseIndexer.solr_writer_class_name.constantize.new.process( druid, solr_doc, targets_hash, solr_targets_configs)
@@ -76,6 +78,15 @@ module BaseIndexer
           targets_hash[target] = true
         end
       end
+      return targets_hash
+    end
+    
+    # It allows the consumer to modify the targets list before doing the final writing
+    #  to the solr core. Default behavior returns the targets_hash as it is
+    # @param targets_hash [Hash] a hash of targets with true value
+    # @param purl_model [DiscoveryIndexer::Reader::PurlxmlModel]  represents the purlxml model
+    # @return [Hash] a hash of targets 
+    def update_targets_before_write(targets_hash, purl_model)
       return targets_hash
     end
     
