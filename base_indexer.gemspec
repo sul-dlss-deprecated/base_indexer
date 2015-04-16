@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 # s.test_files = Dir["spec/**/*"]
   s.add_dependency "rails", '~> 4.1', '>= 4.1.9'
   s.add_dependency 'discovery-indexer'
+  s.add_dependency 'retries'
 
   s.add_development_dependency "sqlite3"
   
