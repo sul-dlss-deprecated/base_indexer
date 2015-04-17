@@ -19,7 +19,7 @@ module BaseIndexer
       end
     end
     
-    def delete
+    def destroy
       begin
         druid = params[:druid]
         indexer = BaseIndexer.indexer_class.constantize.new
