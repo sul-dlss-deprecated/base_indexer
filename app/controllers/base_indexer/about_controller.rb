@@ -14,7 +14,6 @@ module BaseIndexer
         format.json {render :json=>@result.to_json}
         format.xml {render :json=>@result.to_xml(:root => 'status')}
         format.html {render}
-        # add the solr core names
       end      
       
     end

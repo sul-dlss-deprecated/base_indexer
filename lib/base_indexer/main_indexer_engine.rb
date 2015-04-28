@@ -32,22 +32,32 @@ module BaseIndexer
       mods_model =  read_mods(druid)
       collection_names = get_collection_names(purl_model.collection_druids)
       
-      # Map the input to solr_doc
-      solr_doc =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_names).convert_to_solr_doc
+      # Map the input to solr_doc response, which is a hash containing an action and the document
+      solr_doc_response =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_names).convert_to_solr_doc
       
-      # Get target list
-      targets_hash={}
-      if targets.nil? or targets.length == 0
-        targets_hash = purl_model.release_tags_hash
-      else
-        targets_hash = get_targets_hash_from_param(targets)
+      solr_doc=solr_doc_response[:doc]
+      action=solr_doc_response[:action] || :index # default action is index if not supplied
+
+      case action
+        when :index # index the document
+          # Get target list
+          targets_hash={}
+          if targets.nil? or targets.length == 0
+            targets_hash = purl_model.release_tags_hash
+          else
+            targets_hash = get_targets_hash_from_param(targets)
+          end
+      
+          targets_hash = update_targets_before_write(targets_hash, purl_model)
+      
+          # Get SOLR configuration and write
+          solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
+          BaseIndexer.solr_writer_class_name.constantize.new.process( druid, solr_doc, targets_hash, solr_targets_configs)
+        when :delete
+          # delete the document  
+          delete druid
       end
       
-      targets_hash = update_targets_before_write(targets_hash, purl_model)
-      
-      # Get SOLR configuration and write
-      solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
-      BaseIndexer.solr_writer_class_name.constantize.new.process( druid, solr_doc, targets_hash, solr_targets_configs)
     end
     
     # It deletes an item defined by druid from all registered solr core
