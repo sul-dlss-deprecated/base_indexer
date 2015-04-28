@@ -1,6 +1,8 @@
 require 'retries'
+$stdout.sync = true
 
 def log(logger,message,log_type=:info)
+
   case log_type
     when :error
       logger.error(message)
@@ -8,6 +10,8 @@ def log(logger,message,log_type=:info)
       logger.info(message)
   end
   puts message
+  $stdout.flush
+  
 end
 
 desc 'Index a specific list of druids from a pre-assembly log YAML file, a remediate log file, or a simple CSV.  Specify target to index into and log file to index from.'
