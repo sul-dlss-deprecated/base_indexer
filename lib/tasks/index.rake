@@ -91,6 +91,28 @@ task :log_indexer => :environment do |t, args|
   
 end
   
+desc "Delete a single druid.  It will be deleted from all targets!"
+#Run me: rake delete RAILS_ENV=production druid=oo000oo0001
+# Examples:
+task :delete => :environment do |t, args|
+
+  druid = ENV['druid'] 
+  
+  raise 'You must specify a druid.' if druid.blank?
+
+  print "Are you sure you wish to delete this druid from all targets? (y/n) "
+  STDOUT.flush  
+  answer=STDIN.gets.chomp
+  
+  raise 'STOP!' unless (answer && ['y','yes'].include?(answer.downcase))
+      
+  puts "** Delete #{druid} druid from all targets."
+
+  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer.delete druid.gsub('druid:','')
+  
+end
+
 desc 'Index a single druid.  Specify target to index into and druid to index.'
 #Run me: rake index RAILS_ENV=production target=revs_prod druid=oo000oo0001
 # Examples:

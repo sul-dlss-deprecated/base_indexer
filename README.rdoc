@@ -71,3 +71,12 @@ rake reindexer RAILS_ENV=production target=revs_prod file=log/logfile.log
 nohup rake reindexer RAILS_ENV=production target=revs_prod file=log/logfile.log & # probably no need to nohup unless there were alot of errors
 
 
+== Delete Druids
+
+Delete a list of druids specified in a CSV/txt file.  Be careful, this will delete from all targets!  Put one druid per line, no header is necessary.
+
+rake delete_druids RAILS_ENV=production file=druid_list.txt
+
+Delete a single druid
+
+rake delete RAILS_ENV=production druid=oo000oo0001
