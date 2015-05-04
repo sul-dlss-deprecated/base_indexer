@@ -62,7 +62,7 @@ task :log_indexer => :environment do |t, args|
   log my_logger,"** Indexing #{druids.size} druids from #{log_file_path} into solr server #{solr_server} (target=#{target}).  Log file is of type #{log_type}."
   log my_logger,"Indexing started at #{start_time}"
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
 
   counter=0
   
@@ -108,7 +108,7 @@ task :delete => :environment do |t, args|
       
   puts "** Delete #{druid} druid from all targets."
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
   indexer.delete druid.gsub('druid:','')
   
 end
@@ -131,7 +131,7 @@ task :index => :environment do |t, args|
   
   puts "** Indexing #{druid} druid into solr server #{solr_server} (target=#{target})."
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
   indexer.index(druid.gsub('druid:',''),[target]) 
   
 end
@@ -160,7 +160,7 @@ task :collection_indexer => :environment do |t, args|
   start_time=Time.now
   log my_logger,"Indexing started at #{start_time}"
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
 
   df = DorFetcher::Client.new({:service_url => Rails.application.config.dor_fetcher_url})
 
@@ -230,7 +230,7 @@ task :reindexer => :environment do |t, args|
   log my_logger,"** Indexing errored out druids from #{file_path} into solr server #{solr_server} (target=#{target})."
   log my_logger,"Indexing started at #{start_time}"
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
 
   counter=0
 
@@ -293,7 +293,7 @@ task :delete_druids => :environment do |t, args|
   log my_logger,"** Deleting druids from #{file_path} in all targets."
   log my_logger,"Deleting started at #{start_time}"
 
-  indexer = BaseIndexer::MainIndexerEngine.new
+  indexer = BaseIndexer.indexer_class.constantize.new
 
   counter=0
 
