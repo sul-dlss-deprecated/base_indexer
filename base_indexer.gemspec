@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", '~> 4.1', '>= 4.1.9'
   s.add_dependency 'discovery-indexer'
   s.add_dependency 'retries'
+  s.add_dependency 'is_it_working-cbeer'
 
   s.add_development_dependency "sqlite3"
   
