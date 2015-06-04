@@ -30,10 +30,10 @@ module BaseIndexer
       # Read input mods and purl
       purl_model =  read_purl(druid)
       mods_model =  read_mods(druid)
-      collection_names = get_collection_names(purl_model.collection_druids)
+      collection_data = get_collection_data(purl_model.collection_druids)
       
       # Map the input to solr_doc
-      solr_doc =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_names).convert_to_solr_doc
+      solr_doc =  BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_data).convert_to_solr_doc
       
       # Get target list
       targets_hash={}
@@ -96,16 +96,16 @@ module BaseIndexer
     #   !["ab123cd4567", "ef123gh4567"]
     # @return [Hash] a hash for collection druid and its name 
     #   !{"ab123cd4567"=>"Collection 1", "ef123gh4567"=>"Collection 2"}
-    def get_collection_names collection_druids
-      collection_names = {}
+    def get_collection_data collection_druids
+      collection_data = {}
       
       unless collection_druids.nil? then
         collection_druids.each do |cdruid|
-          cname = BaseIndexer::Collection.get_collection_name(cdruid)
-          collection_names[cdruid] = cname unless cname.nil? 
+        cdata = BaseIndexer::Collection.get_collection_info(cdruid)
+          collection_data[cdruid] = cdata unless cdata.nil?
         end
       end
-      collection_names
+      collection_data
     end
     
   end
