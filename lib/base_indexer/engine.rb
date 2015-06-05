@@ -12,6 +12,7 @@ module BaseIndexer
     end
     config.app_version = "0.0"
     config.app_name = "[You have to override this name in your app]"
+    config.solr_config_file_path = "#{config.root}/config/solr.yml"
  
     config.after_initialize do
       
