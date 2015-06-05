@@ -1,0 +1,13 @@
+mysolr:
+  url: http://solr-cloud/mysolr
+mysolr\:prod:
+  url: http://solr-cloud/mysolr
+mysolr\:default:
+  url: http://solr-cloud/mysolr
+mysolr:\:updating:
+  url: http://solr-cloud/mysolr
+  allow_update: true
+mysolr\:slow:
+  url: http://solr-cloud/mysolr
+  open_timeout: 120
+  read_timeout: 120
