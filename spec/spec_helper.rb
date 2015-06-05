@@ -28,6 +28,7 @@ require 'base_indexer'
 
 require 'engine_cart'
 EngineCart.load_application!
+
 require 'vcr'
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'

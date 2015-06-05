@@ -35,3 +35,5 @@ build/
 .rvmrc
 
 /spec/internal
+./spec/internal
+spec/test_app_templates/

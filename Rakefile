@@ -8,10 +8,9 @@ require 'rspec/core'
 require 'rspec/core/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task'
+require 'engine_cart/rake_task'
 
 Bundler::GemHelper.install_tasks
-
-
 
 APP_RAKEFILE = File.expand_path("../spec/internal/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
@@ -23,10 +22,18 @@ desc "run continuous integration suite (tests, coverage, docs)"
 task :ci => [:rspec, :doc]
 
 # Run rspec
-task :spec => :rspec
 RSpec::Core::RakeTask.new(:rspec) do |spec|
   spec.rspec_opts = ["-c", "-f progress", "--tty", "-r ./spec/spec_helper.rb"]
 end
+
+task :spec => ['engine_cart:generate'] do
+  Rake::Task[:rspec].invoke
+end
+
+# task :spec => :rspec
+# RSpec::Core::RakeTask.new(:rspec) do |spec|
+#   spec.rspec_opts = ["-c", "-f progress", "--tty", "-r ./spec/spec_helper.rb"]
+# end
 
 # Use yard to build docs
 begin
@@ -44,6 +51,3 @@ rescue LoadError
     abort "Please install the YARD gem to generate rdoc."
   end
 end  
-
-
-
