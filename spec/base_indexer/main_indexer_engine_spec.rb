@@ -26,37 +26,37 @@ describe BaseIndexer::MainIndexerEngine do
   describe ".get_collection_names" do
     it "should return collection name for one druid list" do
       VCR.use_cassette("get_collection_name") do
-        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_names(["ct961sj2730"])
+        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data(["ct961sj2730"])
         expect(names_hash.include?("ct961sj2730")).to be true
-        expect(names_hash["ct961sj2730"]).to eq("The Caroline Batchelor Map Collection")
+        expect(names_hash["ct961sj2730"]).to eq({:label=>"The Caroline Batchelor Map Collection", :ckey=>"10357851"})
       end
     end
  
     it "should return collection name for multi druid list" do
       VCR.use_cassette("get_collection_name_two_collections") do
-        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_names(["ct961sj2730","yz499rr9528"])
-        expect(names_hash["ct961sj2730"]).to eq("The Caroline Batchelor Map Collection")
-        expect(names_hash["yz499rr9528"]).to eq("[Richard Maxfield Collection]")
+        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data(["ct961sj2730","yz499rr9528"])
+        expect(names_hash["ct961sj2730"]).to eq({:label=>"The Caroline Batchelor Map Collection", :ckey=>"10357851"})
+        expect(names_hash["yz499rr9528"]).to eq({:label=>"[Richard Maxfield Collection]", :ckey=>"8833854"})
       end
     end
      
     it "should exclude the name for item druid" do
       VCR.use_cassette("get_collection_name_for_item") do
-        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_names(["dk605tp1619"])
+        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data(["dk605tp1619"])
         expect(names_hash).to eq({})
       end
     end
     
     it "should return empty hash for empty list" do
       VCR.use_cassette("get_collection_name_for_item") do
-        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_names([])
+        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data([])
         expect(names_hash).to eq({})
       end
     end
     
     it "should return empty hash for nil list" do
       VCR.use_cassette("get_collection_name_for_item") do
-        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_names(nil)
+        names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data(nil)
         expect(names_hash).to eq({})
       end
     end  
@@ -90,7 +90,8 @@ describe BaseIndexer::MainIndexerEngine do
   
   describe ".update_targets_before_write" do
     it "returns the target_hash as it is" do
-      new_target_hash = BaseIndexer::MainIndexerEngine.new.update_targets_before_write({"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}})
+      purl_model = BaseIndexer::MainIndexerEngine.new.read_purl("dk605tp1619")
+      new_target_hash = BaseIndexer::MainIndexerEngine.new.update_targets_before_write({"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}},purl_model)
       expect(new_target_hash).to eq({"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}})
     end
   end
