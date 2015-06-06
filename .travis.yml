@@ -1,5 +1,5 @@
 language: ruby
-script: rake rspec
+script: bundle exec rake rspec
 rvm:
   - 2.1.4
   - 2.0.0
