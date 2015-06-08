@@ -1,9 +1,7 @@
 language: ruby
-script: bundle exec rake rspec
 rvm:
   - 2.1.4
   - 2.0.0
-  - 1.9.3
 notifications:
   email:
     - aalsum@stanford.edu
