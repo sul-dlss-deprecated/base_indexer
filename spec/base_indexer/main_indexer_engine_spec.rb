@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe BaseIndexer::MainIndexerEngine do
   
   before :all do
@@ -64,7 +66,6 @@ describe BaseIndexer::MainIndexerEngine do
   
   describe ".delete" do
     it "should call solr_delete_from_all for delete call" do
-      BaseIndexer::SolrConfigurationFromFile.instance.read("spec/fixtures/solr.yml")
       expect_any_instance_of(DiscoveryIndexer::Writer::SolrWriter).to receive(:solr_delete_from_all)
         .with("aa111aa1111",{"target1"=>{"url"=>"http://localhost:8983/solr/"}, "target2"=>{"url"=>"http://localhost:8983/solr/"}})
         

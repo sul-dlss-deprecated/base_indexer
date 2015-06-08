@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe BaseIndexer::Collection do
     before :all do
     DiscoveryIndexer::PURL_DEFAULT='http://purl.stanford.edu/'

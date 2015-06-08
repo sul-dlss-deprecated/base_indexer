@@ -15,9 +15,12 @@ module BaseIndexer
  
     config.after_initialize do
       
-      # Reads the SOLR configuration fiel 
-      BaseIndexer.solr_configuration_class_name.constantize.instance.read(Rails.configuration.solr_config_file_path ||= 'test')
+      config.solr_config_file = File.join(Rails.root, "config","solr.yml")
       
+      if File.exists? config.solr_config_file
+        # Reads the SOLR configuration file
+        BaseIndexer.solr_configuration_class_name.constantize.instance.read(config.solr_config_file)
+      end
       
       # Initializes the DiscoveryIndexer log with Rails logger, so all the messages will go to 
       #   the same log file
