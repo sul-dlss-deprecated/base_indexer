@@ -11,22 +11,22 @@ require 'yard/rake/yardoc_task'
 
 Bundler::GemHelper.install_tasks
 
-
-
-APP_RAKEFILE = File.expand_path("../spec/internal/Rakefile", __FILE__)
-load 'rails/tasks/engine.rake'
 Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
 
 # Travis ci task
 task :default => :ci  
 desc "run continuous integration suite (tests, coverage, docs)" 
-task :ci => [:rspec, :doc]
 
-# Run rspec
-task :spec => :rspec
-RSpec::Core::RakeTask.new(:rspec) do |spec|
-  spec.rspec_opts = ["-c", "-f progress", "--tty", "-r ./spec/spec_helper.rb"]
+require 'engine_cart/rake_task'
+EngineCart.fingerprint_proc = EngineCart.rails_fingerprint_proc
+
+task :ci => ['engine_cart:generate'] do
+  # run the tests
+  Rake::Task['spec'].invoke
+  Rake::Task['doc'].invoke
 end
+
+RSpec::Core::RakeTask.new(:spec)
 
 # Use yard to build docs
 begin
