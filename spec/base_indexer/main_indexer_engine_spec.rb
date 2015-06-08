@@ -25,7 +25,7 @@ describe BaseIndexer::MainIndexerEngine do
     end
   end
   
-  describe ".get_collection_names" do
+  describe ".get_collection_data" do
     it "should return collection name for one druid list" do
       VCR.use_cassette("get_collection_name") do
         names_hash = BaseIndexer::MainIndexerEngine.new.get_collection_data(["ct961sj2730"])
