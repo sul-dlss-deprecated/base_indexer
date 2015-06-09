@@ -2,6 +2,14 @@
 
 This project rocks and uses MIT-LICENSE.
 
+== Running tests
+
+Clone from github.
+bundle install
+rake # first time setup
+bundle exec rake spec # next time
+
+
 == Steps to hook the base_indexer engine in your app
 * Generate new rails app
 <em>rails new my_indexer_app<em>
