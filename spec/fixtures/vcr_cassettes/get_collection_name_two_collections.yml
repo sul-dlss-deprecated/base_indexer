@@ -133,7 +133,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 09 Jun 2015 17:43:43 GMT
+      - Tue, 09 Jun 2015 17:49:38 GMT
       Server:
       - Apache/2.2.15 (Red Hat)
       X-Powered-By:
@@ -149,9 +149,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c5a193ab-c7e9-4ef5-b168-4ce0ad014f3c
+      - f551cf6a-b273-4af5-aee8-17d35fbb9db4
       X-Runtime:
-      - '0.103577'
+      - '0.013927'
       Status:
       - '200'
       Content-Length:
@@ -211,5 +211,5 @@ http_interactions:
           </oai_dc:dc>
         </publicObject>
     http_version: 
-  recorded_at: Tue, 09 Jun 2015 17:43:44 GMT
+  recorded_at: Tue, 09 Jun 2015 17:49:38 GMT
 recorded_with: VCR 2.9.3
