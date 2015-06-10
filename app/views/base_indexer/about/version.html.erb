@@ -10,3 +10,12 @@
   <strong>Last restart time:</strong> <%=@result[:last_restart]%>  <br />
   <strong>Registered SOLR cores: </strong> <%=@result[:solr_cores]%> <br /> 
 </p>
+
+<p><strong>Loaded Gem Versions:</strong></p>
+<ul>
+  <% @result[:gems].sort.map do |gem_name,specs| %>
+    <li>
+      <%= "#{gem_name}: #{specs.version.to_s}" %>
+    </li>
+  <% end %>
+</ul>
