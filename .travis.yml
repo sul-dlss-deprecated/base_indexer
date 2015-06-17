@@ -1,7 +1,21 @@
-language: ruby
-rvm:
-  - 2.1.4
-  - 2.0.0
 notifications:
-  email:
-    - aalsum@stanford.edu
+  email: false
+  
+rvm:
+  - 2.1.2
+
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+sudo: false
+language: ruby
+cache: bundler
+
+before_script:
+- rake
+
+script: bundle exec rake spec 
+
+after_success:
+  coveralls
