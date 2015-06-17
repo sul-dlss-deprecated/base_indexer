@@ -1,3 +1,6 @@
+{<img src="https://travis-ci.org/sul-dlss/base_indexer.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sul-dlss/base_indexer]  {<img src="https://coveralls.io/repos/sul-dlss/base_indexer/badge.svg" alt="Coverage Status" />}[https://coveralls.io/r/sul-dlss/base_indexer]
+
+
 = BaseIndexer
 
 This project rocks and uses MIT-LICENSE.
