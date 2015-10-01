@@ -7,8 +7,8 @@ require "base_indexer/version"
 Gem::Specification.new do |s|
   s.name        = "base_indexer"
   s.version     = BaseIndexer::VERSION
-  s.authors     = ["Ahmed Alsum"]
-  s.email       = ["aalsum@stanford.edu"]
+  s.authors     = ["Ahmed Alsum", "Laney McGlohon"]
+  s.email       = ["aalsum@stanford.edu", "laneymcg@stanford.edu"]
   s.summary     = "Summary of BaseIndexer."
   s.description = "Description of BaseIndexer."
   s.license     = "Apache 2"
