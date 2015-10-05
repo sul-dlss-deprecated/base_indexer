@@ -29,7 +29,6 @@ module BaseIndexer
     def from_purl
       return nil unless purl_model
       return nil unless purl_model.is_collection
-      return nil unless purl_model.label && purl_model.catkey
       purl_data = { label: purl_model.label, ckey: purl_model.catkey }
       Rails.cache.write(@collection_druid, purl_data, expires_in: 1.hours)
       purl_data
