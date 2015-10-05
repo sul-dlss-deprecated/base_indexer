@@ -36,12 +36,7 @@ module BaseIndexer
     end
 
     def purl_model
-      @purl_model ||= begin
-        DiscoveryIndexer::InputXml::Purlxml.new(@collection_druid).load
-      rescue => e
-        Rails.logger.error "There is a problem in retrieving collection name and/or catkey for #{@collection_druid}. #{e.inspect}\n#{e.message }\n#{e.backtrace}"
-        nil
-      end
+      DiscoveryIndexer::InputXml::Purlxml.new(@collection_druid).load
     end
   end
 end
