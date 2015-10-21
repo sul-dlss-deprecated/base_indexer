@@ -43,21 +43,21 @@ describe BaseIndexer::Collection do
             allow(purl_model).to receive_messages(
               is_collection: true
             )
-            expect(subject.collection_info).to eq({})
+            expect(subject.collection_info).to eq({ label: nil, ckey: nil })
           end
           it 'should return nil when no catkey but there is a label in the purl metadata' do
             allow(purl_model).to receive_messages(
               label: 'Collection label',
               is_collection: true
             )
-            expect(subject.collection_info).to eq({})
+            expect(subject.collection_info).to eq({ label: 'Collection label', ckey: nil })
           end
           it 'should return nil when catkey but no label in the purl metadata' do
             allow(purl_model).to receive_messages(
               catkey: '12345678',
               is_collection: true
             )
-            expect(subject.collection_info).to eq({})
+            expect(subject.collection_info).to eq({ label: nil, ckey: '12345678' })
           end
           it 'should return nil when it is not a collection' do
             allow(purl_model).to receive_messages(

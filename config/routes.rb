@@ -7,5 +7,4 @@ BaseIndexer::Engine.routes.draw do
   delete '/items/:druid', to: 'items#destroy'
 
   post '/collections/:druid', to: 'collections#new'
-
 end

@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in base_indexer.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -13,18 +13,17 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
+file = File.expand_path('Gemfile', ENV['ENGINE_CART_DESTINATION'] || ENV['RAILS_ROOT'] || File.expand_path('../spec/internal', __FILE__))
+if File.exist?(file)
+  puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
+  instance_eval File.read(file)
+else
+  gem 'rails', ENV['RAILS_VERSION'] if ENV['RAILS_VERSION']
 
-  file = File.expand_path("Gemfile", ENV['ENGINE_CART_DESTINATION'] || ENV['RAILS_ROOT'] || File.expand_path("../spec/internal", __FILE__))
-  if File.exists?(file)
-    puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
-    instance_eval File.read(file)
+  if ENV['RAILS_VERSION'] and ENV['RAILS_VERSION'] =~ /^4.2/
+    gem 'responders', '~> 2.0'
+    gem 'sass-rails', '>= 5.0'
   else
-    gem 'rails', ENV['RAILS_VERSION'] if ENV['RAILS_VERSION']
-
-    if ENV['RAILS_VERSION'] and ENV['RAILS_VERSION'] =~ /^4.2/
-      gem 'responders', "~> 2.0"
-      gem 'sass-rails', ">= 5.0"
-    else
-      gem 'sass-rails', "< 5.0"
-    end
+    gem 'sass-rails', '< 5.0'
   end
+end
