@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe BaseIndexer::MainIndexerEngine do
   before :all do
-    DiscoveryIndexer::PURL_DEFAULT = 'http://purl.stanford.edu/'
+    DiscoveryIndexer::PURL_DEFAULT = 'https://purl.stanford.edu'
   end
 
   describe '.index' do
-    
+
   end
 
   describe '.targets_hash_from_param' do

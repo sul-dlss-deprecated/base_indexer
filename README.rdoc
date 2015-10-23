@@ -8,7 +8,7 @@ This project rocks and uses MIT-LICENSE.
 == Running tests
 
 Clone from github.
-  rake # first time setup and to generate all docs 
+  rake # first time setup and to generate all docs
   bundle exec rake spec # just run the tests next time around
 
 
@@ -26,10 +26,10 @@ bundle install
 mount BaseIndexer::Engine, at: '/items'
 
 == Basic configuration
-The engine is looking for the following values 
+The engine is looking for the following values
 
 config.solr_config_file_path = "#{config.root}/config/solr.yml"
-DiscoveryIndexer::PURL_DEFAULT='http://purl.stanford.edu/'
+DiscoveryIndexer::PURL_DEFAULT='https://purl.stanford.edu'
 
 
 == Advanced features
@@ -64,9 +64,9 @@ rake index RAILS_ENV=production target=revs_prod druid=oo000oo0001
 rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander_1.yaml log_type=preassembly  = preassembly run
 nohup rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander_1.yaml log_type=preassembly &  = for a long running process, which will be most runs that have more than a few dozen druids, nohup it
 
-rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander_1_remediate.yaml log_type=remediate = remediation run 
+rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander_1_remediate.yaml log_type=remediate = remediation run
 
-rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander.csv log_type=csv = a simple csv file -- it must have a header line, with the header of "druid" definining the items you wish to index 
+rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander.csv log_type=csv = a simple csv file -- it must have a header line, with the header of "druid" definining the items you wish to index
 
 ==== Index an entire collection, including the collection itself, along with all of its members (be sure to check the dor-fetcher-url parameter in the Rails environment you are running under to be sure it is connecting where you expect):
 

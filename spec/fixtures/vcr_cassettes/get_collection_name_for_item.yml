@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://purl.stanford.edu//dk605tp1619.xml
+    uri: https://purl.stanford.edu/dk605tp1619.xml
     body:
       encoding: US-ASCII
       string: ''
@@ -188,6 +188,6 @@ http_interactions:
         L2RjOnJlbGF0aW9uPgogIDwvb2FpX2RjOmRjPgogIDxyZWxlYXNlRGF0YT4K
         ICAgIDxyZWxlYXNlIHRvPSJTZWFyY2h3b3JrcyI+dHJ1ZTwvcmVsZWFzZT4K
         ICA8L3JlbGVhc2VEYXRhPgo8L3B1YmxpY09iamVjdD4K
-    http_version: 
+    http_version:
   recorded_at: Mon, 28 Sep 2015 18:06:46 GMT
 recorded_with: VCR 2.9.3
