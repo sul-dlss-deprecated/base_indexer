@@ -3,8 +3,6 @@ BaseIndexer::Engine.routes.draw do
   get 'about/version' => 'about#version'
   get 'about' => 'about#version'
 
-  post '/items/:druid', to: 'items#new'
-  delete '/items/:druid', to: 'items#destroy'
-
-  post '/collections/:druid', to: 'collections#new'
+  resources :items, only: [:update, :destroy]
+  resources :collections, only: :update
 end

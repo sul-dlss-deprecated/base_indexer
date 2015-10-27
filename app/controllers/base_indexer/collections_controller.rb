@@ -2,8 +2,8 @@ require_dependency 'base_indexer/application_controller'
 
 module BaseIndexer
   class CollectionsController < ApplicationController
-    def new
-      druid = remove_prefix params[:druid]
+    def update
+      druid = remove_prefix params[:id]
 
       Rails.logger.debug "Receiving indexing of collection #{druid}"
       targets = params[:subtargets]
@@ -21,8 +21,8 @@ module BaseIndexer
 
       counter = 0
 
-      item_druids.each do |druid|
-        druid = remove_prefix druid
+      item_druids.each do |idruid|
+        druid = remove_prefix idruid
         counter += 1
         indexer.index druid, targets
         Rails.logger.debug "#{counter} of #{item_druids.size}: #{druid}"

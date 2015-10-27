@@ -2,8 +2,8 @@ require_dependency 'base_indexer/application_controller'
 
 module BaseIndexer
   class ItemsController < ApplicationController
-    def new
-      druid = remove_prefix params[:druid]
+    def update
+      druid = remove_prefix params[:id]
       Rails.logger.debug "Receiving indexing #{druid}"
       targets = params[:subtargets]
 
@@ -19,7 +19,7 @@ module BaseIndexer
     end
 
     def destroy
-      druid = remove_prefix params[:druid]
+      druid = remove_prefix params[:id]
       Rails.logger.debug "Receiving deleting #{druid}"
 
       indexer = BaseIndexer.indexer_class.constantize.new
