@@ -16,32 +16,36 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Mon, 28 Sep 2015 18:06:47 GMT
+      - Wed, 11 Nov 2015 15:54:56 GMT
       Server:
-      - Apache/2.2.15 (Red Hat)
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - '"26287b53aedf2f41649a966ab7d13a28"'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Etag:
-      - '"10b4708ff079d9cdb99cfb9cfefdd559"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 28294275-87ca-4fa5-a50f-0dd2a34663b5
       X-Runtime:
-      - '0.015441'
+      - '0.009306'
+      X-Request-Id:
+      - 700c6a23-3277-481e-8781-024d64fb4165
+      X-Powered-By:
+      - Phusion Passenger 5.0.16
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Last-Modified:
+      - Mon, 26 Oct 2015 00:52:37 GMT
       Status:
-      - '200'
-      Content-Length:
-      - '6400'
+      - 200 OK
+      Transfer-Encoding:
+      - chunked
       Content-Type:
       - application/xml; charset=utf-8
     body:
@@ -190,6 +194,6 @@ http_interactions:
         ZXNzQ29uZGl0aW9uIHR5cGU9ImxpY2Vuc2UiPkNDIGJ5LXNhOiBBdHRyaWJ1
         dGlvbi1TaGFyZUFsaWtlIDMuMCBVbnBvcnRlZDwvYWNjZXNzQ29uZGl0aW9u
         Pgo8L21vZHM+Cg==
-    http_version:
-  recorded_at: Mon, 28 Sep 2015 18:06:47 GMT
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 15:54:56 GMT
 recorded_with: VCR 2.9.3
