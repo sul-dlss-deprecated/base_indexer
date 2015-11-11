@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   # s.test_files = Dir["test/**/*"]
   # s.test_files = Dir["spec/**/*"]
   s.add_dependency 'rails', '~> 4.1', '>= 4.1.9'
-  s.add_dependency 'discovery-indexer', '>= 0.10.0'
+  s.add_dependency 'discovery-indexer', '>= 0.10.1'
   s.add_dependency 'retries'
   s.add_dependency 'is_it_working-cbeer'
 
