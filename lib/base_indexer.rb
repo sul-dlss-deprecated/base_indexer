@@ -1,9 +1,11 @@
 require 'base_indexer/engine'
 
 require 'base_indexer/main_indexer_engine'
-require 'base_indexer/solr/solr_configuration'
-require 'base_indexer/solr/solr_configuration_from_file'
+require 'base_indexer/config/solr_configuration'
+require 'base_indexer/config/solr_configuration_from_file'
 require 'base_indexer/collection'
+require 'base_indexer/solr/client'
+require 'base_indexer/solr/writer'
 require 'discovery-indexer'
 module BaseIndexer
   mattr_accessor :indexer_class
