@@ -72,7 +72,7 @@ describe BaseIndexer::MainIndexerEngine do
 
   describe '.delete' do
     it 'should call solr_delete_from_all for delete call' do
-      expect_any_instance_of(DiscoveryIndexer::Writer::SolrWriter).to receive(:solr_delete_from_all)
+      expect_any_instance_of(BaseIndexer::Solr::Writer).to receive(:solr_delete_from_all)
         .with('aa111aa1111', 'target1' => { 'url' => 'http://localhost:8983/solr/' }, 'target2' => { 'url' => 'http://localhost:8983/solr/' })
 
       BaseIndexer::MainIndexerEngine.new.delete 'aa111aa1111'

@@ -1,0 +1,313 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:09 GMT
+      Etag:
+      - '"MjkwMDAwMDAwMDAwMDAwU29scg=="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1},'response'=>{'numFound'=>0,'start'=>0,'docs'=>[]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:09 GMT
+      Etag:
+      - '"MjkwMDAwMDAwMDAwMDAwU29scg=="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1},'response'=>{'numFound'=>0,'start'=>0,'docs'=>[]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: post
+    uri: http://localhost:8983/solr/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><add commitWithin="10000"><doc><field
+        name="id">cb077vs7846</field><field name="score_isi">10</field><field name="title">First
+        title</field></doc></add>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>2}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: post
+    uri: http://localhost:8983/solr/update?commit=true
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/xml; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <response>
+        <lst name="responseHeader"><int name="status">0</int><int name="QTime">15</int></lst>
+        </response>
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:32 GMT
+      Etag:
+      - '"NDI5MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'cb077vs7846','score_isi'=>10,'title'=>'First title','_version_'=>1517502178483240960,'timestamp'=>'2015-11-11T00:47:32.71Z'}]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:32 GMT
+      Etag:
+      - '"NDI5MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'cb077vs7846','score_isi'=>10,'title'=>'First title','_version_'=>1517502178483240960,'timestamp'=>'2015-11-11T00:47:32.71Z'}]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:32 GMT
+      Etag:
+      - '"NDI5MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'cb077vs7846','score_isi'=>10,'title'=>'First title','_version_'=>1517502178483240960,'timestamp'=>'2015-11-11T00:47:32.71Z'}]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: post
+    uri: http://localhost:8983/solr/update?commit=true
+    body:
+      encoding: UTF-8
+      string: '[{"id":"cb077vs7846","title":{"set":["New title"]}}]'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '52'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {"responseHeader":{"status":0,"QTime":17}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: post
+    uri: http://localhost:8983/solr/update?commit=true
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/xml; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <response>
+        <lst name="responseHeader"><int name="status">0</int><int name="QTime">1</int></lst>
+        </response>
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:32 GMT
+      Etag:
+      - '"NjI5MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'cb077vs7846','score_isi'=>10,'title'=>'New title','timestamp'=>'2015-11-11T00:47:32.71Z','_version_'=>1517502178555592704}]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8983/solr/select?q=id:%22cb077vs7846%22&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Wed, 11 Nov 2015 00:47:32 GMT
+      Etag:
+      - '"NjI5MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'cb077vs7846','score_isi'=>10,'title'=>'New title','timestamp'=>'2015-11-11T00:47:32.71Z','_version_'=>1517502178555592704}]}}
+    http_version: 
+  recorded_at: Wed, 11 Nov 2015 00:47:32 GMT
+recorded_with: VCR 2.9.3
