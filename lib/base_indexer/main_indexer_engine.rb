@@ -26,27 +26,12 @@ module BaseIndexer
     #
     # @raise it will raise erros if there is any problems happen in any level
     def index(druid, targets = nil)
-      # Read input mods and purl
-      purl_model =  read_purl(druid)
-      mods_model =  read_mods(druid)
-      collection_data = collection_data(purl_model.collection_druids)
-
       # Map the input to solr_doc
-      solr_doc = BaseIndexer.mapper_class_name.constantize.new(druid, mods_model, purl_model, collection_data).convert_to_solr_doc
-
-      # Get target list
-      targets_hash = {}
-      if targets.present?
-        targets_hash = targets_hash_from_param(targets)
-      else
-        targets_hash = purl_model.release_tags_hash
-      end
-
-      targets_hash = update_targets_before_write(targets_hash, purl_model)
+      solr_doc = BaseIndexer.mapper_class_name.constantize.new(druid).convert_to_solr_doc
 
       # Get SOLR configuration and write
       solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
-      BaseIndexer.solr_writer_class_name.constantize.new.process(druid, solr_doc, targets_hash, solr_targets_configs)
+      BaseIndexer.solr_writer_class_name.constantize.new.process(druid, solr_doc, targets, solr_targets_configs)
     end
 
     # It deletes an item defined by druid from all registered solr core
@@ -56,54 +41,5 @@ module BaseIndexer
       BaseIndexer.solr_writer_class_name.constantize.new.solr_delete_from_all(druid, solr_targets_configs)
     end
 
-    def read_purl(druid)
-      DiscoveryIndexer::InputXml::Purlxml.new(druid).load
-    end
-
-    def read_mods(druid)
-      DiscoveryIndexer::InputXml::Modsxml.new(druid).load
-    end
-
-    # It converts targets array to targets hash
-    # @param targets [Array] a  list of specfic targets
-    # @return [Hash] a hash of targets with true value
-    # @example convert target list
-    #   targets_hash_from_param( ["searchworks","revs"] )
-    #   {"searchworks"=>true, "revs"=>true}
-    def targets_hash_from_param(targets)
-      targets_hash = {}
-      unless targets.nil?
-        targets.each do |target|
-          targets_hash[target] = true
-        end
-      end
-      targets_hash
-    end
-
-    # It allows the consumer to modify the targets list before doing the final writing
-    #  to the solr core. Default behavior returns the targets_hash as it is
-    # @param targets_hash [Hash] a hash of targets with true value
-    # @param purl_model [DiscoveryIndexer::Reader::PurlxmlModel]  represents the purlxml model
-    # @return [Hash] a hash of targets
-    def update_targets_before_write(targets_hash, _purl_model)
-      targets_hash
-    end
-
-    # It converts collection_druids list to a hash with names. If the druid doesn't
-    # have a collection name, it will be excluded from the hash
-    # @param collection_druids [Array] a list of druids
-    #   !["ab123cd4567", "ef123gh4567"]
-    # @return [Hash] a hash for collection druid and its name
-    #   !{"ab123cd4567"=>"Collection 1", "ef123gh4567"=>"Collection 2"}
-    def collection_data(collection_druids)
-      collection_data = {}
-      unless collection_druids.nil?
-        collection_druids.each do |cdruid|
-          cdata = BaseIndexer::Collection.new(cdruid).collection_info
-          collection_data[cdruid] = cdata if cdata.present?
-        end
-      end
-      collection_data
-    end
   end
 end
