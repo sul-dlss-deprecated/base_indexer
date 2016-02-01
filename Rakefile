@@ -8,6 +8,7 @@ require 'rspec/core'
 require 'rspec/core/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task'
+require 'bundler/gem_tasks'
 
 Bundler::GemHelper.install_tasks
 
