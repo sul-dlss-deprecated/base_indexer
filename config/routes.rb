@@ -3,6 +3,6 @@ BaseIndexer::Engine.routes.draw do
   get 'about/version' => 'about#version'
   get 'about' => 'about#version'
 
-  resources :items, only: [:update, :destroy]
+  resources :items
   resources :collections, only: :update
 end
