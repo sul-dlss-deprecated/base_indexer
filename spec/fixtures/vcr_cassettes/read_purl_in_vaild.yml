@@ -19,13 +19,13 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Thu, 10 Dec 2015 16:13:00 GMT
+      - Thu, 04 Feb 2016 19:32:00 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.020340'
+      - '0.026834'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -33,11 +33,11 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - 9bd2d115-5c3d-46b6-b947-3f2e49c8d3d9
+      - c9680374-4999-4750-a6a3-9a0759cc4ce7
       X-Powered-By:
-      - Phusion Passenger 5.0.16
+      - Phusion Passenger 5.0.22
       Set-Cookie:
-      - _purl_session=NnQ1ckZlWm9QM3kvdkxPaVJZL3VscXZoZ08vZFdjbmxkUXF6eU5DRmVZT1FKZmt3ekVuSXcrd21iZXo2dmhlZUhhdWVkT25LL2VrMUhteG94amo1L09iam9TUmhBQVlMVU9ndVNVanNZZ1Y2Uko0MjJ2QTFQY3FkUStISXp5M09ma1lzaFRKbVJScUN5YWlaY3RuZDFnPT0tLTRyMlNsQ3hOWXNaVnBHZDhMaUU1T2c9PQ%3D%3D--b59ebb2ddf2b504eb579bc21419d2afa23821c0d;
+      - _purl_session=TGRVeWhjRnN2UmhUcjhKclFvR1lQanA1dDJmMFpYei8wNjhnT0MyS0g1TldqblMwYkcxR3J5NzNhMEFIVFpWTXloNWtwVmZkbzNvaWlLdDhWMlNmUkhDdTN1QUh1R2JWR3N5NkU5bEFUN0pCa3hnVi95SGRoL2Vyb2dBTEMzMmF2amVydTZmV0U2a1Y3bVhKdkpCZTJnPT0tLUdLc2tEMng3UElSUVhJNzFiVUhZUVE9PQ%3D%3D--f36bab5501d63ef7eab75996d1dbf4ee77efef00;
         path=/; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
@@ -59,13 +59,13 @@ http_interactions:
         http-equiv=\"cleartype\" content=\"on\">\n    <![endif]-->\n\n    <title>Stanford
         Digital Repository</title>\n\n    <link rel=\"shortcut icon\" type=\"image/x-icon\"
         href=\"/assets/favicon-8a4c41227945e5f20503f62517defcfb2ef88f578e222838318c704472d483b0.ico\"
-        />\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application-0c2d8fa2db6ec82093fbd9d61857db447a85910399436a164ce31768ee641279.css\"
-        />\n    <link rel=\"stylesheet\" media=\"print\" href=\"/assets/print-1bc020d6fd87497d79d66c9598b059bb6786543bfd7fa5a09a9b2bbb40bc84de.css\"
+        />\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application-0e3dd66278390ef40614bffe7d40a4ab75eda8b61cac5ebfb1de04551b1eeb35.css\"
+        />\n    <link rel=\"stylesheet\" media=\"print\" href=\"/assets/print-29a2612d7c8ce28a106b2aa110b9d05c08936291c37252808d7bee6837961eaa.css\"
         />\n    <link href=\"https://www.stanford.edu/su-identity/css/su-identity.css\"
         rel=\"stylesheet\">\n    <link rel=\"stylesheet\" media=\"screen\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700\"
-        />\n    <script src=\"/assets/application-dcb8916a5524b7b5fc596b831a48b777aebe6219413488a830841196b8fdadfe.js\"></script>\n
+        />\n    <script src=\"/assets/application-bb5122c67d67e6ebfe5d4eae3977762aa91c9798082be2d7a5976c8163edf2bf.js\"></script>\n
         \   <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
-        content=\"YIdE8aBU/YISOY5NN6A2ax+wW11u9d1TCPtZ2nxJnPOuBj8YeBdjSwUYm1tCEfESNHgU+5JS7oJEbJhoHj92GA==\"
+        content=\"QgD55Pa6XrnPwi9z7wXbX6WOG+mqIzGjAJKTChBMbuXK/8/Yt4arCvrRKSOrhhMebeEUCy7xLj+mZcNgzVhVpA==\"
         />\n\n    \n    \n    \n    <meta name=\"twitter:card\" />\n    \n\n    <!--[if
         lt IE 9]>\n      <script src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n
         \   <![endif]-->\n    <!--[if IE 8]>\n      <link rel=\"stylesheet\" type=\"text/css\"
@@ -76,17 +76,16 @@ http_interactions:
         -->\n        <div id=\"outer-container\" class=\"container-fluid\">\n          <div
         id=\"topnav-container\">\n  <header id=\"topnav\" class=\"header-logo\" role=\"banner\">\n
         \   <a href=\"http://library.stanford.edu\">\n      <span class=\"sr-only\">Stanford
-        University Libraries</span>\n      <img data-hidpi-src=\"/assets/sul-logo@2x-adac22f3e7cbf3849320e16173ec68ebe0b89d73c80f07baabb5b5920d50a8df.png\"
-        class=\"hidden-xs\" alt=\"\" height=\"25\" src=\"/assets/sul-logo-8dfefc678313c186818297b03fab4a4ed59926e46a30022cd1b015cbb1bdb0ad.png\"
-        />\n      <img data-hidpi-src=\"/assets/sul-logo-small@2x-ce1097d8e0a05fe55599e2761c0728a5de180dc1f6214450f23e70d22790d0f5.png\"
-        class=\"visible-xs\" alt=\"\" height=\"25\" src=\"/assets/sul-logo-small-dae80ac9d5187216139a309d4aa53cdd343a67e6a5cb5d56b7fc0711fa3888a4.png\"
+        University Libraries</span>\n      <img class=\"hidden-xs\" alt=\"\" height=\"25\"
+        src=\"/assets/sul-logo-8dfefc678313c186818297b03fab4a4ed59926e46a30022cd1b015cbb1bdb0ad.png\"
+        />\n      <img class=\"visible-xs\" alt=\"\" height=\"25\" src=\"/assets/sul-logo-small-dae80ac9d5187216139a309d4aa53cdd343a67e6a5cb5d56b7fc0711fa3888a4.png\"
         />\n</a>    <div class=\"header-links\">\n      <a class=\"first\" data-toggle=\"collapse\"
         data-target=\"#feedback-form\" href=\"/feedback\">\n        Feedback\n</a>
         \   </div>\n  </header>\n</div>\n<div id=\"feedback-form\" class=\"feedback-form-container
         collapse\">\n  <div class=\"container\">\n  <form class=\"form-horizontal
         feedback-form\" role=\"form\" action=\"/feedback\" accept-charset=\"UTF-8\"
         method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input
-        type=\"hidden\" name=\"authenticity_token\" value=\"6utLpZbd+vbAjPpawgMM0xiTut5gz0jBPXzw6VOo3wMkajBMTp5kP9et70y3ssuqM1v1eJxoexBx6zFbMd416A==\"
+        type=\"hidden\" name=\"authenticity_token\" value=\"ueyu+BaXbrG9LdFxOuNtRkF3bQGfK26fU1P77899mBwxE5jEV6ubAog+1yF+YKUHiRhi4xv5cQP1pKuFEmmjXQ==\"
         />\n    <div class=\"col-sm-6 col-sm-offset-2\">\n      <div class=\"col-sm-offset-3\">\n
         \       Reporting from: <span class=\"reporting-from-field\"></span>\n<input
         type=\"hidden\" name=\"url\" id=\"url\" class=\"reporting-from-field\" />\n\n
@@ -122,8 +121,7 @@ http_interactions:
         \         </section>\n        </div>\n      </div> <!-- #su-content end -->\n
         \   </div> <!-- #su-wrap end -->\n    <footer role=\"contentinfo\">\n  <div
         id=\"sul-footer-container\">\n    <div id=\"sul-footer\">\n      <div id=\"sul-footer-img\"
-        class=\"span2\">\n        <img data-hidpi-src=\"/assets/SUL-logo-stacked@2x-5c5b140ede955a3354b2f84ec6711806e54f6db538f844cffa255c72dedf7dc1.png\"
-        alt=\"\" height=\"45\" src=\"/assets/SUL-logo-stacked-e88700b061a7f08a657172efc12ee6769cf2b90b14ad25a7b558aac9dc3232cc.png\"
+        class=\"span2\">\n        <img alt=\"\" height=\"45\" src=\"/assets/SUL-logo-stacked-e88700b061a7f08a657172efc12ee6769cf2b90b14ad25a7b558aac9dc3232cc.png\"
         />\n      </div>\n      <div id=\"sul-footer-links\" class=\"span2\">\n        <ul>\n
         \         <li><a href=\"http://library.stanford.edu\">Stanford University
         Libraries</a></li>\n          <li><a href=\"http://library.stanford.edu/hours\">Hours
@@ -150,5 +148,5 @@ http_interactions:
         \   </div> <!-- .row end -->\n  </div> <!-- .container end -->\n</div> <!--
         global-footer end -->\n<!-- Global footer snippet end -->\n\n  </body>\n</html>\n"
     http_version: 
-  recorded_at: Thu, 10 Dec 2015 16:13:00 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 04 Feb 2016 19:32:00 GMT
+recorded_with: VCR 3.0.1

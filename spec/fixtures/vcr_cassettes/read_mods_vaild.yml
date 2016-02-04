@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Dec 2015 16:28:13 GMT
+      - Thu, 04 Feb 2016 19:32:00 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       Cache-Control:
@@ -33,11 +33,11 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Runtime:
-      - '0.024879'
+      - '0.194302'
       X-Request-Id:
-      - f292af57-9171-4a14-951b-62e530329335
+      - f8bd4e1e-42fa-4e47-8980-d530bcb4f05f
       X-Powered-By:
-      - Phusion Passenger 5.0.16
+      - Phusion Passenger 5.0.22
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Last-Modified:
@@ -195,5 +195,5 @@ http_interactions:
         dGlvbi1TaGFyZUFsaWtlIDMuMCBVbnBvcnRlZDwvYWNjZXNzQ29uZGl0aW9u
         Pgo8L21vZHM+Cg==
     http_version: 
-  recorded_at: Thu, 10 Dec 2015 16:28:13 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Thu, 04 Feb 2016 19:32:01 GMT
+recorded_with: VCR 3.0.1
