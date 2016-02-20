@@ -21,6 +21,9 @@ Bundler.setup
 
 ENV['RSPEC_RUNNING'] = 'true'
 
+require 'coveralls'
+Coveralls.wear!('rails')
+
 require 'bundler/setup'
 require 'rails'
 require 'base_indexer'
