@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   # s.test_files = Dir["test/**/*"]
   # s.test_files = Dir["spec/**/*"]
-  s.add_dependency 'rails', '~> 4.1', '>= 4.1.9'
+  s.add_dependency 'rails', '~> 4'
   s.add_dependency 'discovery-indexer', '~> 1.0.1'
   s.add_dependency 'retries'
   s.add_dependency 'is_it_working-cbeer'
