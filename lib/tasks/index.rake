@@ -48,10 +48,8 @@ task :log_indexer => :environment do |t, args|
   errors=0
   indexed=0
 
-  druids=[]
-
   if ['preassembly','remediate'].include? log_type
-    YAML.load_stream(IO.read(log_file_path)) { |obj| druids << obj[:pid] if obj[log_completed] == true}
+    YAML.load_stream(IO.read(log_file_path)).map { |obj| obj[:pid] if obj[log_completed] == true}
   else
     csv = CSV.parse(IO.read(log_file_path), :headers => true)
     druids=csv.map { |row| row.to_hash.with_indifferent_access['druid'] }.delete_if {|druid| druid.nil?}
