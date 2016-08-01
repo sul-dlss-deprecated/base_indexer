@@ -19,13 +19,13 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Thu, 04 Feb 2016 19:32:02 GMT
+      - Mon, 01 Aug 2016 16:42:56 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.008379'
+      - '0.021645'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -33,11 +33,11 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - d659a395-3abd-466d-b940-748a7cad4242
+      - 7839e35b-3455-4451-802e-627c99185ca9
       X-Powered-By:
       - Phusion Passenger 5.0.22
       Set-Cookie:
-      - _purl_session=ZzNteFZsSkR6elhyMkhldjlLVkVYSTRyNDI4bGUxVzkveERWSlNVV3g3cGNWMlEyZ3VCMHV5ZGhqYU5aTHpSekJvQXFnaUxZVnBJc1F4UWxab0dFbEYxeTVsRGNQN2U0QThnbDZhYk16ZVhiWmI1b3locEd3OENqRWNiaFhTMUVtMkorNmU0ZXhQM2V6amlvUzhjcDJRPT0tLU5xdFlMMGNwODhMQ05jOVh1SldZMVE9PQ%3D%3D--fd34b06248e3e9b62a3af0c01d1485a40d929511;
+      - _purl_session=R3R4c3NHZDRSeHhvK3RqY1g5MVBZZGIxUVlhSTN5OFVsWG1va2JLMWV0N2x5d3FNRGtqM2MzTjhaNkpxcGtYcVRHRjMxU2lEQVhCZndlRGlZeWJxZmlPN0pBeVI4S3RuNnlYOXpOVUxFa0NUUWcyQm5FaHFIOHJ1WVJKcTBoRE5mTisrdGNWMGNFc25XeEhhOW4rSUtRPT0tLWpNemJXakU4aEgxVUNsdDRqQlZQN3c9PQ%3D%3D--8ed31ef14dc7182f847d39f031caec40592ee5d5;
         path=/; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
@@ -59,13 +59,13 @@ http_interactions:
         http-equiv=\"cleartype\" content=\"on\">\n    <![endif]-->\n\n    <title>Stanford
         Digital Repository</title>\n\n    <link rel=\"shortcut icon\" type=\"image/x-icon\"
         href=\"/assets/favicon-8a4c41227945e5f20503f62517defcfb2ef88f578e222838318c704472d483b0.ico\"
-        />\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application-0e3dd66278390ef40614bffe7d40a4ab75eda8b61cac5ebfb1de04551b1eeb35.css\"
-        />\n    <link rel=\"stylesheet\" media=\"print\" href=\"/assets/print-29a2612d7c8ce28a106b2aa110b9d05c08936291c37252808d7bee6837961eaa.css\"
+        />\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application-167c1c1f57a0693029791bcf42fea22b9fc7341e0f362156a11b450461f491e3.css\"
+        />\n    <link rel=\"stylesheet\" media=\"print\" href=\"/assets/print-a1fc9febe4cdbf31b306d4b9ec5fd3aad873844da8d7039ef8b8b5812103209e.css\"
         />\n    <link href=\"https://www.stanford.edu/su-identity/css/su-identity.css\"
         rel=\"stylesheet\">\n    <link rel=\"stylesheet\" media=\"screen\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700\"
         />\n    <script src=\"/assets/application-bb5122c67d67e6ebfe5d4eae3977762aa91c9798082be2d7a5976c8163edf2bf.js\"></script>\n
         \   <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
-        content=\"lRN+wCt14W7PNNfZeBJ5PS8dl15Vbc5SGotSZnQF9Fh/sMsHB0C+0WasrBVe7tAwgzObkV8M0lxpJMTxTUnLsg==\"
+        content=\"I4HW4jHudAjLv3xhdh1mQKVA/zz8BGC1/LzvREIFkEt7IFUQeqGP7Y7wXWQjFX2bQyhxuqRcVGJAORuF4STipw==\"
         />\n\n    \n    \n    \n    <meta name=\"twitter:card\" />\n    \n\n    <!--[if
         lt IE 9]>\n      <script src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n
         \   <![endif]-->\n    <!--[if IE 8]>\n      <link rel=\"stylesheet\" type=\"text/css\"
@@ -85,7 +85,7 @@ http_interactions:
         collapse\">\n  <div class=\"container\">\n  <form class=\"form-horizontal
         feedback-form\" role=\"form\" action=\"/feedback\" accept-charset=\"UTF-8\"
         method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input
-        type=\"hidden\" name=\"authenticity_token\" value=\"6zv6/WaKCizQLm7hayKKzXC7lYAtqWONSqdRFhzJ9mgBmE86Sr9Vk3m2FS1N3iPA3JWZTyfIf4M5CMeBJYXJgg==\"
+        type=\"hidden\" name=\"authenticity_token\" value=\"R6e9+v26WccWZ3UfWZdl81SwNgEDr2lkU3MduxWbDBUfBj4ItvWiIlMoVBoMn34osti4h1v3XbPv9ul6trp++Q==\"
         />\n    <div class=\"col-sm-6 col-sm-offset-2\">\n      <div class=\"col-sm-offset-3\">\n
         \       Reporting from: <span class=\"reporting-from-field\"></span>\n<input
         type=\"hidden\" name=\"url\" id=\"url\" class=\"reporting-from-field\" />\n\n
@@ -148,5 +148,5 @@ http_interactions:
         \   </div> <!-- .row end -->\n  </div> <!-- .container end -->\n</div> <!--
         global-footer end -->\n<!-- Global footer snippet end -->\n\n  </body>\n</html>\n"
     http_version: 
-  recorded_at: Thu, 04 Feb 2016 19:32:02 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Mon, 01 Aug 2016 16:42:56 GMT
+recorded_with: VCR 3.0.3

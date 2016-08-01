@@ -160,14 +160,14 @@ task :collection_indexer => :environment do |t, args|
 
   indexer = BaseIndexer.indexer_class.constantize.new
 
-  df = DorFetcher::Client.new({:service_url => Rails.application.config.dor_fetcher_url})
+  fetcher = BaseIndexer.fetcher_class.constantize.new(service_url: Rails.application.config.fetcher_url)
 
   collection_druid=collection_druid.gsub('druid:','')
 
   indexer.index(collection_druid,{target=>true})
   log my_logger,"Indexed collection: #{collection_druid}"
 
-  druids = df.druid_array(df.get_collection(collection_druid, {}))
+  druids = fetcher.druid_array(fetcher.get_collection(collection_druid, {}))
 
   log my_logger,"** Found #{druids.size} members of the collection"
 
