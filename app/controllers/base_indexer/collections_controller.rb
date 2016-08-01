@@ -12,10 +12,9 @@ module BaseIndexer
       indexer = BaseIndexer.indexer_class.constantize.new
       indexer.index druid, targets
 
-      # initialize dor-fetcher to get list of druids for this collection
-      df = DorFetcher::Client.new(service_url: Rails.application.config.dor_fetcher_url)
-
-      item_druids = df.druid_array(df.get_collection(druid, {}))
+      # Determine collection item druids
+      fetcher = BaseIndexer.fetcher_class.constantize.new(service_url: Rails.application.config.fetcher_url)
+      item_druids = fetcher.druid_array(fetcher.get_collection(druid, {}))
 
       Rails.logger.debug "Found #{item_druids.size} members of the collection #{druid}"
 

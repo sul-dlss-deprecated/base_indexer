@@ -11,4 +11,5 @@ module BaseIndexer
   mattr_accessor :mapper_class_name
   mattr_accessor :solr_writer_class_name
   mattr_accessor :solr_configuration_class_name
+  mattr_accessor :fetcher_class
 end

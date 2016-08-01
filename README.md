@@ -67,7 +67,7 @@ $ rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander
 
 $ rake log_indexer RAILS_ENV=production target=revs_prod log_file=/tmp/mailander.csv log_type=csv = a simple csv file -- it must have a header line, with the header of "druid" definining the items you wish to index
 
-### Index an entire collection, including the collection itself, along with all of its members (be sure to check the dor-fetcher-url parameter in the Rails environment you are running under to be sure it is connecting where you expect):
+### Index an entire collection, including the collection itself, along with all of its members (be sure to check the fetcher_url parameter in the Rails environment you are running under to be sure it is connecting where you expect):
 
 $ rake collection_indexer RAILS_ENV=production target=revs_prod collection_druid=oo000oo0001
 $ nohup rake collection_indexer RAILS_ENV=production target=revs_prod collection_druid=oo000oo0001 &   = for a long running process, e.g. a collection with more than a few dozen druids, nohup it
