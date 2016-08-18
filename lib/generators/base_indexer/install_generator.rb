@@ -9,5 +9,9 @@ module BaseIndexer
     def assets
       copy_file 'solr.yml', 'config/solr.yml'
     end
-   end
+
+    def add_routes
+      route "mount BaseIndexer::Engine, at: '/'"
+    end
+  end
 end

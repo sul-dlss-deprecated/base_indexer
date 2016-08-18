@@ -23,8 +23,10 @@ gem 'base_indexer'
 ### Run bundle install to download the gem
 $ bundle install
 
-### Mount the engine in your favorite domain.
-mount BaseIndexer::Engine, at: '/items'
+## Run the install generator
+```sh
+$ rails g base_indexer:install
+```
 
 ## Basic configuration
 The engine is looking for the following values
