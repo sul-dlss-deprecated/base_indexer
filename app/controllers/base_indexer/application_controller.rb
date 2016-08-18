@@ -1,6 +1,5 @@
 module BaseIndexer
   class ApplicationController < ActionController::Base
-    respond_to :json, :xml, :html
 
     def remove_prefix(druid)
       druid.gsub('druid:', '') # lop off druid prefix if sent
