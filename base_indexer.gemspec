@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'sqlite3'
 
-  s.add_development_dependency 'rspec', '~> 3.1.0' # bug with graph_spec #remove_predicate_and_its_object_statements for 3.2.0
-  s.add_development_dependency 'rspec-rails', '~> 3.1.0' # bug with graph_spec #remove_predicate_and_its_object_statements for 3.2.0
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
