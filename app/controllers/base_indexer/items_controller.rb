@@ -3,34 +3,47 @@ require_dependency 'base_indexer/application_controller'
 module BaseIndexer
   class ItemsController < ApplicationController
     def update
-      druid = remove_prefix params[:id]
       Rails.logger.debug "Receiving indexing #{druid}"
-      targets = params[:subtargets]
 
       indexer = BaseIndexer.indexer_class.constantize.new
-      indexer.index druid, targets
-      @status = report_success
+      indexer.index druid, { subtarget_params => true }
       render nothing: true, status: 200
       Rails.logger.debug "Completing indexing #{druid}"
     rescue StandardError => e
-      @status = report_failure request.method_symbol, params, e
-      Rails.logger.error @status
+      Rails.logger.error report_failure request.method_symbol, params, e
       render nothing: true, status: 202
     end
 
     def destroy
-      druid = remove_prefix params[:id]
       Rails.logger.debug "Receiving deleting #{druid}"
-
       indexer = BaseIndexer.indexer_class.constantize.new
-      indexer.delete druid
-      @status = report_success
+      # If no subtarget is defined, delete from everywhere
+      if optional_subtarget_params.nil?
+        indexer.delete druid
+      else
+        ##
+        # Only delete from specified subtarget
+        indexer.index druid, { subtarget_params => false }
+      end
       render nothing: true, status: 200
       Rails.logger.debug "Completing deleting #{druid}"
     rescue StandardError => e
-      @status =  report_failure request.method_symbol, params, e
-      Rails.logger.error @status
+      Rails.logger.error report_failure request.method_symbol, params, e
       render nothing: true, status: 202
+    end
+
+    private
+
+    def druid
+      remove_prefix params.require(:druid)
+    end
+
+    def optional_subtarget_params
+      params.permit(:subtarget)[:subtarget]
+    end
+
+    def subtarget_params
+      params.require(:subtarget)
     end
   end
 end
