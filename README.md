@@ -91,3 +91,61 @@ $ rake delete_druids RAILS_ENV=production file=druid_list.txt
 ### Delete a single druid
 
 $ rake delete RAILS_ENV=production druid=oo000oo0001
+
+# HTTP API
+
+### Items
+
+#### `/items/:druid`
+
+`DELETE /items/:druid`
+
+##### Summary
+Deletes a druid from all registered subtargets.
+
+##### Parameters
+Name | Located In | Description | Required | Schema | Default
+---- | ---------- | ----------- | -------- | ------ | -------
+`druid` | url | object identifier | yes | String |
+
+##### Responses
+Code | Description
+---- | -----------
+`200` | Request received and successfully processed for all subtargets
+`202` | Request received but did not complete successfully (one or more subtargets may have not been deleted)
+
+#### `/items/:druid/subtargets/:subtarget`
+
+`DELETE /items/:druid/subtargets/:subtarget`
+
+##### Summary
+Deletes a druid from a specific subtarget.
+
+##### Parameters
+Name | Located In | Description | Required | Schema | Default
+---- | ---------- | ----------- | -------- | ------ | -------
+`druid` | url | object identifier | yes | String |
+`subtarget` | url | subtarget name (usually capitialized) | yes | String |
+
+##### Responses
+Code | Description
+---- | -----------
+`200` | Request received and successfully processed for subtarget
+`202` | Request received but did not complete successfully
+
+`PATCH/PUT /items/:druid/subtargets/:subtarget`
+
+##### Summary
+Indexes a druid from a specific subtarget.
+
+##### Parameters
+Name | Located In | Description | Required | Schema | Default
+---- | ---------- | ----------- | -------- | ------ | -------
+`druid` | url | object identifier | yes | String |
+`subtarget` | url | subtarget name (usually capitialized) | yes | String |
+
+##### Responses
+Code | Description
+---- | -----------
+`200` | Request received and successfully processed for subtarget
+`202` | Request received but did not complete successfully
