@@ -1,3 +1,5 @@
+require 'okcomputer' # TODO: hack to ensure OkComputer is loaded before base_indexer's engine otherwise routes aren't drawn correctly
+
 require 'base_indexer/engine'
 
 require 'base_indexer/main_indexer_engine'
