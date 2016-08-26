@@ -24,7 +24,7 @@ describe BaseIndexer::MainIndexerEngine do
 
     it 'should raise an error for not found druid' do
       VCR.use_cassette('read_purl_in_vaild') do
-        expect { DiscoveryIndexer::InputXml::Purlxml.new('aa111aa1111').load }.to raise_error
+        expect { DiscoveryIndexer::InputXml::Purlxml.new('aa111aa1111').load }.to raise_error(DiscoveryIndexer::Errors::MissingPurlPage)
       end
     end
   end
@@ -39,7 +39,7 @@ describe BaseIndexer::MainIndexerEngine do
 
     it 'should raise an error for not found druid' do
       VCR.use_cassette('read_mods_in_vaild') do
-        expect { DiscoveryIndexer::InputXml::Modsxml.new('aa111aa1111').load }.to raise_error
+        expect { DiscoveryIndexer::InputXml::Modsxml.new('aa111aa1111').load }.to raise_error(DiscoveryIndexer::Errors::MissingModsPage)
       end
     end
   end
