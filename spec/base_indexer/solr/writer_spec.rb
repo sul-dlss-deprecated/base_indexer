@@ -58,8 +58,14 @@ describe BaseIndexer::Solr::Writer do
       expect(solr_connector.uri.to_s).to eq('http://solr-core:8983/sw-preview/')
     end
 
-    it 'should return a connector for a target that is avaliable in config list' do
+    it 'should return nil for a target that is not avaliable in config list' do
       solr_connector = subject.get_connector_for_target('nothing')
+      expect(solr_connector).to be_nil
+    end
+
+    it 'should return nil for a nil solr targets list' do
+      allow(subject).to receive(:solr_targets_configs).and_return(nil)
+      solr_connector = subject.get_connector_for_target('searchworks')
       expect(solr_connector).to be_nil
     end
   end
