@@ -43,9 +43,11 @@ module BaseIndexer
 
       def get_connector_for_target(solr_target)
         solr_connector = nil
-        if solr_targets_configs.keys.include?(solr_target)
-          config = solr_targets_configs[solr_target]
-          solr_connector = RSolr.connect(config.deep_symbolize_keys)
+        unless solr_targets_configs.nil?
+          if solr_targets_configs.keys.include?(solr_target)
+            config = solr_targets_configs[solr_target]
+            solr_connector = RSolr.connect(config.deep_symbolize_keys)
+          end
         end
         solr_connector
       end
