@@ -30,7 +30,7 @@ task :log_indexer => :environment do |t, args|
   raise 'Log type must be preassembly, remediate or csv.' unless ['preassembly','remediate','csv'].include? log_type
   raise 'Log file not found.' unless File.readable? log_file_path
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]
+  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
 
   raise 'Target not found.' if target_config.nil?
 
@@ -55,7 +55,7 @@ task :log_indexer => :environment do |t, args|
     druids=csv.map { |row| row.to_hash.with_indifferent_access['druid'] }.delete_if {|druid| druid.nil?}
   end
 
-  solr_server=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]['url']
+  solr_server=target_config['url']
 
   log my_logger,"** Indexing #{druids.size} druids from #{log_file_path} into solr server #{solr_server} (target=#{target}).  Log file is of type #{log_type}."
   log my_logger,"Indexing started at #{start_time}"
@@ -121,11 +121,11 @@ task :index => :environment do |t, args|
 
   raise 'You must specify a target and druid.' if target.blank? || druid.blank?
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]
+  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
 
   raise 'Target not found.' if target_config.nil?
 
-  solr_server=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]['url']
+  solr_server=target_config['url']
 
   puts "** Indexing #{druid} druid into solr server #{solr_server} (target=#{target})."
 
@@ -144,11 +144,11 @@ task :collection_indexer => :environment do |t, args|
 
   raise 'You must specify a target and collection druid.' if target.blank? || collection_druid.blank?
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]
+  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
 
   raise 'Target not found.' if target_config.nil?
 
-  solr_server=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]['url']
+  solr_server=target_config['url']
 
   output_log_file_name="#{Rails.root}/log/collection_#{collection_druid}_indexer_#{Time.now.strftime('%Y%m%d-%H%M%S')}.log"
   my_logger=Logger.new(output_log_file_name) # set up a new log file
@@ -211,7 +211,7 @@ task :reindexer => :environment do |t, args|
   raise 'You must specify a target and file.' if target.blank? || file_path.blank?
   raise 'File not found.' unless File.readable? file_path
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]
+  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
 
   raise 'Target not found.' if target_config.nil?
 
@@ -220,7 +220,7 @@ task :reindexer => :environment do |t, args|
   errors=0
   indexed=0
 
-  solr_server=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target]['url']
+  solr_server=target_config['url']
 
   output_log_file_name="#{Rails.root}/log/#{File.basename(file_path,File.extname(file_path))}_reindex_#{Time.now.strftime('%Y%m%d-%H%M%S')}.log"
   my_logger=Logger.new(output_log_file_name) # set up a new log file
