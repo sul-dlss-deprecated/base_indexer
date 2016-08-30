@@ -19,7 +19,7 @@ module BaseIndexer
      #
      #   {"target1":{"url"=>"http://localhost/solr/","open_timeout"=>120},"target2":{"url"=>"http://solr-cor.com/solr/"}}
      def get_configuration_hash
-      @solr_config_hash
+       Hash[ @solr_config_hash.collect {|k,v| [k.upcase, v] } ] # updase all of the target names
     end
   end
 end
