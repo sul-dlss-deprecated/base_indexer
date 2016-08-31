@@ -112,7 +112,7 @@ Name | Located In | Description | Required | Schema | Default
 Code | Description
 ---- | -----------
 `200` | Request received and successfully processed for all subtargets
-`202` | Request received but did not complete successfully (one or more subtargets may have not been deleted)
+`503` | Request received but did not complete successfully (one or more subtargets may have not been deleted)
 
 #### `/items/:druid/subtargets/:subtarget`
 
@@ -131,7 +131,7 @@ Name | Located In | Description | Required | Schema | Default
 Code | Description
 ---- | -----------
 `200` | Request received and successfully processed for subtarget
-`202` | Request received but did not complete successfully
+`503` | Request received but did not complete successfully
 
 `PATCH/PUT /items/:druid/subtargets/:subtarget`
 
@@ -148,4 +148,4 @@ Name | Located In | Description | Required | Schema | Default
 Code | Description
 ---- | -----------
 `200` | Request received and successfully processed for subtarget
-`202` | Request received but did not complete successfully
+`503` | Request received but did not complete successfully

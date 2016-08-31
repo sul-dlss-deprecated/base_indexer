@@ -11,10 +11,10 @@ describe BaseIndexer::ItemsController, type: :controller do
       patch :update, druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer
       expect(response.status).to eq 200
     end
-    it 'when something bad happens return a 202' do
+    it 'when something bad happens return a 503' do
       expect(my_instance).to receive(:index).with('bb1111cc2222', 'SEARCHWORKS' => true).and_raise(StandardError)
       patch :update, druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer
-      expect(response.status).to eq 202
+      expect(response.status).to eq 503
     end
   end
   describe 'DELETE destroy' do
