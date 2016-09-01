@@ -11,7 +11,7 @@ module BaseIndexer
       Rails.logger.debug "Completing indexing #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      render nothing: true, status: 503
+      render nothing: true, status: 500
     end
 
     def destroy
@@ -29,7 +29,7 @@ module BaseIndexer
       Rails.logger.debug "Completing deleting #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      render nothing: true, status: 503
+      render nothing: true, status: 500
     end
 
     private

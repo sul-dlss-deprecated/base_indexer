@@ -34,7 +34,7 @@ module BaseIndexer
     rescue Exception => e
       @status = report_failure request.method_symbol, params, e
       Rails.logger.error @status
-      render nothing: true, status: 503
+      render nothing: true, status: 500
     end
   end
 end
