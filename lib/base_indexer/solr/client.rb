@@ -35,7 +35,7 @@ module BaseIndexer
       # @param max_retries [Integer] the maximum number of tries before fail
       def self.process(id, solr_doc, solr_connector, max_retries, is_delete = false)
         handler = proc do |exception, attempt_number, _total_delay|
-          DiscoveryIndexer::Logging.logger.debug "#{exception.class} on attempt #{attempt_number} for #{id}"
+          DiscoveryIndexer::Logging.logger.error "#{exception.class} on attempt #{attempt_number} for #{id}"
         end
 
         with_retries(max_tries: max_retries, handler: handler, base_sleep_seconds: 1, max_sleep_seconds: 5) do |attempt|
