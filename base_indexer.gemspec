@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 4'
   s.add_dependency 'discovery-indexer', '~> 2.0.0'
   s.add_dependency 'retries'
-  s.add_dependency 'is_it_working-cbeer'
   s.add_dependency 'dor-fetcher'
 
   s.add_development_dependency 'sqlite3'
