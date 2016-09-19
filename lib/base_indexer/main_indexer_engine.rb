@@ -21,8 +21,7 @@ module BaseIndexer
     # It is the main indexing function
     #
     # @param druid [String] is the druid for an object e.g., ab123cd4567
-    # @param targets [Array] is an array with the targets list to index towards,
-    #   if it is nil, the method will read the target list from release_tags
+    # @param targets [Array] is an array with the targets list to index towards
     #
     # @raise it will raise erros if there is any problems happen in any level
     def index(druid, targets = nil)
