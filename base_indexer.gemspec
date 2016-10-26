@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'discovery-indexer', '>= 2', '<= 4.0'
   s.add_dependency 'retries'
   s.add_dependency 'dor-fetcher'
+  s.add_dependency 'config'
 
   s.add_development_dependency 'sqlite3'
 
