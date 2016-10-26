@@ -30,7 +30,7 @@ task :log_indexer => :environment do |t, args|
   raise 'Log type must be preassembly, remediate or csv.' unless ['preassembly','remediate','csv'].include? log_type
   raise 'Log file not found.' unless File.readable? log_file_path
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
+  target_config = Settings.SOLR_TARGETS[target]
 
   raise 'Target not found.' if target_config.nil?
 
@@ -121,7 +121,7 @@ task :index => :environment do |t, args|
 
   raise 'You must specify a target and druid.' if target.blank? || druid.blank?
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
+  target_config = Settings.SOLR_TARGETS[target]
 
   raise 'Target not found.' if target_config.nil?
 
@@ -144,7 +144,7 @@ task :collection_indexer => :environment do |t, args|
 
   raise 'You must specify a target and collection druid.' if target.blank? || collection_druid.blank?
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
+  target_config = Settings.SOLR_TARGETS[target]
 
   raise 'Target not found.' if target_config.nil?
 
@@ -211,7 +211,7 @@ task :reindexer => :environment do |t, args|
   raise 'You must specify a target and file.' if target.blank? || file_path.blank?
   raise 'File not found.' unless File.readable? file_path
 
-  target_config=BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash[target.upcase]
+  target_config = Settings.SOLR_TARGETS[target]
 
   raise 'Target not found.' if target_config.nil?
 
