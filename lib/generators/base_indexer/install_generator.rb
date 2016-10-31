@@ -7,7 +7,7 @@ module BaseIndexer
     desc 'Install Base Indexer'
 
     def assets
-      copy_file 'solr.yml', 'config/solr.yml'
+      copy_file 'settings.yml', 'config/settings.yml'
     end
 
     def add_routes

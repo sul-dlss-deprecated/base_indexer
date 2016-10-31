@@ -1,0 +1,5 @@
+SOLR_TARGETS:
+  target1:
+    url: http://localhost:8983/solr/
+  target2:
+    url: http://localhost:8983/solr/

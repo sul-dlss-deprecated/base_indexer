@@ -1,4 +1,5 @@
 require 'active_support/core_ext/numeric/bytes'
+require 'config'
 
 module BaseIndexer
   class Engine < ::Rails::Engine
@@ -14,13 +15,6 @@ module BaseIndexer
     config.app_name = '[You have to override this name in your app]'
 
     config.after_initialize do
-      config.solr_config_file = File.join(Rails.root, 'config', 'solr.yml')
-
-      if File.exist? config.solr_config_file
-        # Reads the SOLR configuration file
-        BaseIndexer.solr_configuration_class_name.constantize.instance.read(config.solr_config_file)
-      end
-
       # Initializes the DiscoveryIndexer log with Rails logger, so all the messages will go to
       #   the same log file
       DiscoveryIndexer::Logging.logger = Rails.logger

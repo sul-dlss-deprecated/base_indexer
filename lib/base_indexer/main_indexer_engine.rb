@@ -29,15 +29,15 @@ module BaseIndexer
       solr_doc = BaseIndexer.mapper_class_name.constantize.new(druid).convert_to_solr_doc
 
       # Get SOLR configuration and write
-      solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
-      BaseIndexer.solr_writer_class_name.constantize.new.process(druid, solr_doc, targets, solr_targets_configs)
+      BaseIndexer.solr_writer_class_name.constantize.new
+                 .process(druid, solr_doc, targets, Settings.SOLR_TARGETS.to_hash.deep_stringify_keys)
     end
 
     # It deletes an item defined by druid from all registered solr core
     # @param druid [String] is the druid for an object e.g., ab123cd4567
     def delete(druid)
-      solr_targets_configs = BaseIndexer.solr_configuration_class_name.constantize.instance.get_configuration_hash
-      BaseIndexer.solr_writer_class_name.constantize.new.solr_delete_from_all(druid, solr_targets_configs)
+      BaseIndexer.solr_writer_class_name.constantize.new
+                 .solr_delete_from_all(druid, Settings.SOLR_TARGETS.to_hash.deep_stringify_keys)
     end
 
   end
