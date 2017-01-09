@@ -1,6 +1,3 @@
-require 'active_support/core_ext/numeric/bytes'
-require 'config'
-
 module BaseIndexer
   class Engine < ::Rails::Engine
     isolate_namespace BaseIndexer
