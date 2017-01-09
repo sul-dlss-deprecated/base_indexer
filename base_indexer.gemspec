@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   # s.test_files = Dir["test/**/*"]
   # s.test_files = Dir["spec/**/*"]
-  s.add_dependency 'rails', '~> 4'
+
+  s.add_dependency 'rails', '>= 4', '< 6'
   s.add_dependency 'discovery-indexer', '>= 2', '<= 4.0'
   s.add_dependency 'retries'
   s.add_dependency 'dor-fetcher'
