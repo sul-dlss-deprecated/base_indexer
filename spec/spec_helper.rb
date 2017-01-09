@@ -17,19 +17,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-Bundler.setup
-
-ENV['RSPEC_RUNNING'] = 'true'
-
 require 'coveralls'
 Coveralls.wear!('rails')
 
-require 'bundler/setup'
-require 'rails'
-require 'base_indexer'
-
 require 'engine_cart'
 EngineCart.load_application!
+
 require 'vcr'
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
@@ -41,6 +34,7 @@ end
 
 # require 'rspec'
 require 'rspec/rails'
+require 'base_indexer'
 
 # require 'rspec/autorun'
 # require 'factory_girl_rails'
