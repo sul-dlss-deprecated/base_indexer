@@ -13,10 +13,12 @@ Gem::Specification.new do |s|
   s.description = 'Description of BaseIndexer.'
   s.license     = 'Apache 2'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
-  # s.test_files = Dir["test/**/*"]
-  # s.test_files = Dir["spec/**/*"]
-
+  s.files         = `git ls-files -z`.split("\x0")
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.bindir        = 'exe'
+  s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  s.require_paths = ["lib"]
+  
   s.add_dependency 'rails', '>= 4', '< 6'
   s.add_dependency 'discovery-indexer', '>= 2', '<= 4.0'
   s.add_dependency 'retries'
