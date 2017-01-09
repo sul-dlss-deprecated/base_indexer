@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency 'rails', '>= 4', '< 6'
-  s.add_dependency 'discovery-indexer', '>= 2', '<= 4.0'
+  s.add_dependency 'discovery-indexer', '>= 2', '< 4'
   s.add_dependency 'retries'
   s.add_dependency 'dor-fetcher'
   s.add_dependency 'config'
