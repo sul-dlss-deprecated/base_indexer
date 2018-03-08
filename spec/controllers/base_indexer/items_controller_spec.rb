@@ -8,12 +8,12 @@ describe BaseIndexer::ItemsController, type: :controller do
   describe 'PATCH/PUT update' do
     it 'creates an indexing job' do
       expect(my_instance).to receive(:index).with('bb1111cc2222', 'SEARCHWORKS' => true)
-      patch :update, druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer
+      patch :update, params: { druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer }
       expect(response.status).to eq 200
     end
     it 'when something bad happens return a 500' do
       expect(my_instance).to receive(:index).with('bb1111cc2222', 'SEARCHWORKS' => true).and_raise(StandardError)
-      patch :update, druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer
+      patch :update, params: { druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer }
       expect(response.status).to eq 500
     end
   end
@@ -21,14 +21,14 @@ describe BaseIndexer::ItemsController, type: :controller do
     context 'with a subtarget' do
       it 'sends an "#index" with a false to the IndexerEngine' do
         expect(my_instance).to receive(:index).with('bb1111cc2222', 'SEARCHWORKS' => false)
-        delete :destroy, druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer
+        delete :destroy, params: { druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer }
         expect(response.status).to eq 200
       end
     end
     context 'without a subtarget' do
       it 'sends a "#delete" to the IndexerEngine' do
         expect(my_instance).to receive(:delete).with('bb1111cc2222')
-        delete :destroy, druid: 'druid:bb1111cc2222', use_route: :base_indexer
+        delete :destroy, params: { druid: 'druid:bb1111cc2222', use_route: :base_indexer }
         expect(response.status).to eq 200
       end
     end
