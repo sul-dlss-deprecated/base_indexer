@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency 'rails', '>= 4', '< 6'
+  s.add_dependency 'rails', '~> 5'
   s.add_dependency 'discovery-indexer', '>= 2', '< 4'
   s.add_dependency 'retries'
   s.add_dependency 'dor-fetcher'

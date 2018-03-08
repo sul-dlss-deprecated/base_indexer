@@ -7,11 +7,11 @@ module BaseIndexer
 
       indexer = BaseIndexer.indexer_class.constantize.new
       indexer.index druid, { subtarget_params => true }
-      render nothing: true, status: 200
+      head :ok
       Rails.logger.debug "Completing indexing #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      render nothing: true, status: 500
+      head :internal_server_error
     end
 
     def destroy
@@ -25,11 +25,11 @@ module BaseIndexer
         # Only delete from specified subtarget
         indexer.index druid, { subtarget_params => false }
       end
-      render nothing: true, status: 200
+      head :ok
       Rails.logger.debug "Completing deleting #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      render nothing: true, status: 500
+      head :internal_server_error
     end
 
     private

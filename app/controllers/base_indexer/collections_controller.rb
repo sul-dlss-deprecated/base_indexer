@@ -28,13 +28,13 @@ module BaseIndexer
       end
 
       @status = report_success
-      render nothing: true, status: 200
+      head :ok
       Rails.logger.debug "Completing indexing of collection #{druid}"
 
     rescue Exception => e
       @status = report_failure request.method_symbol, params, e
       Rails.logger.error @status
-      render nothing: true, status: 500
+      head :internal_server_error
     end
   end
 end
