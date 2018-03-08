@@ -13,8 +13,9 @@ describe BaseIndexer::ItemsController, type: :controller do
     end
     it 'when something bad happens return a 500' do
       expect(my_instance).to receive(:index).with('bb1111cc2222', 'SEARCHWORKS' => true).and_raise(StandardError)
-      patch :update, params: { druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer }
-      expect(response.status).to eq 500
+      expect do
+        patch :update, params: { druid: 'druid:bb1111cc2222', subtarget: 'SEARCHWORKS', use_route: :base_indexer }
+      end.to raise_exception(StandardError)
     end
   end
   describe 'DELETE destroy' do

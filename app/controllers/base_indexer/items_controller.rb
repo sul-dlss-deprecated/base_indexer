@@ -11,7 +11,7 @@ module BaseIndexer
       Rails.logger.debug "Completing indexing #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      head :internal_server_error
+      raise
     end
 
     def destroy
@@ -29,7 +29,7 @@ module BaseIndexer
       Rails.logger.debug "Completing deleting #{druid}"
     rescue StandardError => e
       Rails.logger.error report_failure request.method_symbol, params, e
-      head :internal_server_error
+      raise
     end
 
     private

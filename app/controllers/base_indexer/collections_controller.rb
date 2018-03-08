@@ -34,7 +34,7 @@ module BaseIndexer
     rescue Exception => e
       @status = report_failure request.method_symbol, params, e
       Rails.logger.error @status
-      head :internal_server_error
+      raise
     end
   end
 end
