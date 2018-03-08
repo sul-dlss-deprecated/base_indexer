@@ -16,8 +16,6 @@ module BaseIndexer
   #   indexer = BaseIndexer::MainIndexerEngine.new
   #   indexer.delete "ab123cd456"
   class MainIndexerEngine
-    include DiscoveryIndexer
-
     # It is the main indexing function
     #
     # @param druid [String] is the druid for an object e.g., ab123cd4567
