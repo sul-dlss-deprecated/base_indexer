@@ -10,6 +10,4 @@ BaseIndexer::Engine.routes.draw do
       delete 'subtargets/:subtarget', action: :destroy
     end
   end
-
-  resources :collections, only: :update
 end
