@@ -1,5 +1,3 @@
-require_dependency 'base_indexer/application_controller'
-
 module BaseIndexer
   class ItemsController < ApplicationController
     def update
