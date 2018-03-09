@@ -30,7 +30,7 @@ module BaseIndexer
             solr_connector.add(solr_doc, :add_attributes => {:commitWithin => 10000})
             DiscoveryIndexer::Logging.logger.info "Indexing #{id} on attempt #{attempt}"
           end
-          #solr_connector.commit
+
           DiscoveryIndexer::Logging.logger.info "Completing #{id} successfully on attempt #{attempt}"
         end
       end
@@ -62,12 +62,6 @@ module BaseIndexer
       def self.doc_exists?(id, solr_connector)
         response = solr_connector.get 'select', params: { q: 'id:"' + id + '"' }
         response['response']['numFound'] == 1
-      end
-
-      # @param solr_connector [RSolr::Client]  is an open connection with the solr core
-      # send hard commit to solr
-      def self.commit(solr_connector)
-        RestClient.post self.solr_url(solr_connector), {},:content_type => :json, :accept=>:json
       end
 
       # It is an internal method that updates the solr doc instead of adding a new one.
