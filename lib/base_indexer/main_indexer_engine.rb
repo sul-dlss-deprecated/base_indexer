@@ -22,18 +22,24 @@ module BaseIndexer
     # @param targets [Array] is an array with the targets list to index towards
     #
     # @raise it will raise erros if there is any problems happen in any level
-    def index(druid, targets = nil)
+    def index(druid, targets)
       # Map the input to solr_doc
-      solr_doc = BaseIndexer.mapper_class_name.constantize.new(druid).convert_to_solr_doc
+      solr_doc = mapper_class.new(druid).convert_to_solr_doc
 
       # Get SOLR configuration and write
-      solr_writer.process(druid, solr_doc, targets, Settings.SOLR_TARGETS.to_hash.deep_stringify_keys)
+      solr_writer.process(druid, solr_doc, targets)
     end
 
     # It deletes an item defined by druid from all registered solr core
     # @param druid [String] is the druid for an object e.g., ab123cd4567
     def delete(druid)
-      solr_writer.solr_delete_from_all(druid, Settings.SOLR_TARGETS.to_hash.deep_stringify_keys)
+      solr_writer.solr_delete_from_all(druid)
+    end
+
+    private
+
+    def mapper_class
+      BaseIndexer.mapper_class_name.constantize
     end
 
     def solr_writer
