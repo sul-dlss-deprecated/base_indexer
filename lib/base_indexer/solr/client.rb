@@ -71,31 +71,12 @@ module BaseIndexer
       def self.update_solr_doc(id, solr_doc, solr_connector)
         # update_solr_doc can't used RSolr because updating hash doc is not supported
         #  so we need to build the json input manually
-        params = "[{\"id\":\"#{id}\","
-        solr_doc.each do |field_name, new_values|
-          next if field_name == :id
-          params += "\"#{field_name}\":"
-          new_values = [new_values] unless new_values.class == Array
-          new_values = new_values.map { |s| s.to_s.gsub('\\', '\\\\\\').gsub('"', '\"').strip } # strip leading/trailing spaces and escape quotes for each value
-          params += "{\"set\":[\"#{new_values.join('","')}\"]},"
+        hash = { id: id }
+        solr_doc.each do |k,v|
+          hash[k] = { set: v } unless k.to_sym == :id
         end
-        params.chomp!(',')
-        params += '}]'
-        RestClient.post self.solr_url(solr_connector), params, content_type: :json, accept: :json
+        solr_connector.update params: { commitWithin: 10000 }, data: Array.wrap(hash).to_json, headers: { 'Content-Type' => 'application/json' }
       end
-
-      # adjust the solr_url so it works with or without a trailing /
-      # @param solr_connector [RSolr::Client]  is an open connection with the solr core
-      # @return [String] the solr URL
-      def self.solr_url(solr_connector)
-        solr_url = solr_connector.options[:url]
-        if solr_url.end_with?('/')
-          "#{solr_url}update?commit=true"
-        else
-          "#{solr_url}/update?commit=true"
-        end
-      end
-
     end
   end
 end
