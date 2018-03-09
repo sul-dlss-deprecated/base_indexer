@@ -60,7 +60,7 @@ module BaseIndexer
       # @param solr_connector [RSolr::Client]  is an open connection with the solr core
       # @return [Boolean] true if the solr doc defined by this id exists
       def self.doc_exists?(id, solr_connector)
-        response = solr_connector.get 'select', params: { q: 'id:"' + id + '"' }
+        response = solr_connector.get 'select', params: { q: 'id:"' + id + '"', defType: 'lucene' }
         response['response']['numFound'] == 1
       end
 
