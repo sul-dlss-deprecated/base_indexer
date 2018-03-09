@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BaseIndexer::Solr::Client do
+RSpec.describe BaseIndexer::Solr::Client do
   let(:druid) { 'cb077vs7846' }
   let(:solr_doc) { { a: 1 } }
 

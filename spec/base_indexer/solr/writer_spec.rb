@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BaseIndexer::Solr::Writer do
+RSpec.describe BaseIndexer::Solr::Writer do
   let(:sw_connection) { { url: 'http://solr-core:8983/sw-prod/' } }
   let(:preview_connection) { { url: 'http://solr-core:8983/sw-preview/' } }
   let(:mix_targets) { { 'searchworks' => true, 'searchworks:preview' => false } }

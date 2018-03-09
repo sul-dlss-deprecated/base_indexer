@@ -38,3 +38,4 @@ build/
 .internal_test_app
 /spec/internal
 ./spec/internal
+/spec/examples.txt
