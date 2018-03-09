@@ -8,10 +8,6 @@ module BaseIndexer
       indexer = BaseIndexer.indexer_class.constantize.new
       indexer.index druid, { subtarget_params => true }
       head :ok
-      Rails.logger.debug "Completing indexing #{druid}"
-    rescue StandardError => e
-      Rails.logger.error report_failure request.method_symbol, params, e
-      raise
     end
 
     def destroy
@@ -26,16 +22,12 @@ module BaseIndexer
         indexer.index druid, { subtarget_params => false }
       end
       head :ok
-      Rails.logger.debug "Completing deleting #{druid}"
-    rescue StandardError => e
-      Rails.logger.error report_failure request.method_symbol, params, e
-      raise
     end
 
     private
 
     def druid
-      remove_prefix params.require(:druid)
+      params.require(:druid).gsub('druid:', '') # lop off druid prefix if sent
     end
 
     def optional_subtarget_params
