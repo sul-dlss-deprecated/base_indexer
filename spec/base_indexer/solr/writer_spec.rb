@@ -20,17 +20,17 @@ describe BaseIndexer::Solr::Writer do
     it 'should create two arrays index_targets and delete_targets' do
       expect(subject).to receive(:solr_index_client).with(id, solr_doc, ['searchworks'])
       expect(subject).to receive(:solr_delete_client).with(id, ['searchworks:preview'])
-      subject.process(id, solr_doc, mix_targets, {})
+      subject.process(id, solr_doc, mix_targets)
     end
     it 'should not send delete messages when there are no delete targets' do
       expect(subject).to receive(:solr_index_client).with(id, solr_doc, ['searchworks'])
-      expect(subject).not_to receive(:solr_delete_client)
-      subject.process(id, solr_doc, index_targets, {})
+      expect(BaseIndexer::Solr::Client).not_to receive(:delete)
+      subject.process(id, solr_doc, index_targets)
     end
     it 'should not send index messages when there are no index targets' do
-      expect(subject).not_to receive(:solr_index_client)
+      expect(BaseIndexer::Solr::Client).not_to receive(:add)
       expect(subject).to receive(:solr_delete_client).with(id, ['searchworks:preview'])
-      subject.process(id, solr_doc, delete_targets, {})
+      subject.process(id, solr_doc, delete_targets)
     end
   end
 
@@ -38,12 +38,12 @@ describe BaseIndexer::Solr::Writer do
     it 'should call solr client delete method for each target' do
       expect(BaseIndexer::Solr::Client).to receive(:delete).with('aa111bb222', an_instance_of(RSolr::Client))
       expect(BaseIndexer::Solr::Client).to receive(:delete).with('aa111bb222', an_instance_of(RSolr::Client))
-      subject.solr_delete_client('aa111bb222', ['searchworks', 'searchworks:preview'])
+      subject.process('aa111bb222', {}, { 'searchworks' => false, 'searchworks:preview' => false })
     end
 
     it 'should not call solr client delete method when there is no client for the given target' do
       expect(BaseIndexer::Solr::Client).not_to receive(:delete)
-      subject.solr_delete_client('aa111bb222', ['blah'])
+      subject.process('aa111bb222', {}, { 'blah' => false })
     end
   end
 
@@ -60,12 +60,6 @@ describe BaseIndexer::Solr::Writer do
 
     it 'should return nil for a target that is not avaliable in config list' do
       solr_connector = subject.get_connector_for_target('nothing')
-      expect(solr_connector).to be_nil
-    end
-
-    it 'should return nil for a nil solr targets list' do
-      allow(subject).to receive(:solr_targets_configs).and_return(nil)
-      solr_connector = subject.get_connector_for_target('searchworks')
       expect(solr_connector).to be_nil
     end
   end
