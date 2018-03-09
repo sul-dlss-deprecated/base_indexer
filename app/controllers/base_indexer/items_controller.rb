@@ -3,14 +3,13 @@ module BaseIndexer
     def update
       Rails.logger.debug "Receiving indexing #{druid}"
 
-      indexer = BaseIndexer.indexer_class.constantize.new
       indexer.index druid, { subtarget_params => true }
       head :ok
     end
 
     def destroy
       Rails.logger.debug "Receiving deleting #{druid}"
-      indexer = BaseIndexer.indexer_class.constantize.new
+
       # If no subtarget is defined, delete from everywhere
       if optional_subtarget_params.nil?
         indexer.delete druid
@@ -23,6 +22,10 @@ module BaseIndexer
     end
 
     private
+
+    def indexer
+      BaseIndexer.indexer_class.constantize.new
+    end
 
     def druid
       params.require(:druid).gsub('druid:', '') # lop off druid prefix if sent
