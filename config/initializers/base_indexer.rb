@@ -3,4 +3,3 @@
 # The engine consumer app should override this class
 BaseIndexer.indexer_class = 'BaseIndexer::MainIndexerEngine'
 BaseIndexer.mapper_class_name = 'DiscoveryIndexer::GeneralMapper'
-BaseIndexer.solr_writer_class_name = 'BaseIndexer::Solr::Writer'
