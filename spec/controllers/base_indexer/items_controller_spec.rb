@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BaseIndexer::ItemsController, type: :controller do
+RSpec.describe BaseIndexer::ItemsController, type: :controller do
   let(:my_instance) { instance_double(BaseIndexer::MainIndexerEngine) }
   before do
     allow(BaseIndexer::MainIndexerEngine).to receive(:new).and_return(my_instance)

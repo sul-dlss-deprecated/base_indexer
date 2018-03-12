@@ -138,7 +138,7 @@ desc 'Index an entire collection, including the collection itself and all of its
 #Run me: rake collection_indexer RAILS_ENV=production target=revs_prod collection_druid=oo000oo0001
 # Examples:
 task :collection_indexer => :environment do |t, args|
-
+  require 'harvestdor/indexer'
   target = ENV['target'] # must pass in the target so specify solr core to index into
   collection_druid = ENV['collection_druid']
 
@@ -160,14 +160,14 @@ task :collection_indexer => :environment do |t, args|
 
   indexer = BaseIndexer.indexer_class.constantize.new
 
-  fetcher = BaseIndexer.fetcher_class.constantize.new(service_url: Rails.application.config.fetcher_url)
+  fetcher = Harvestdor::Indexer::PurlFetcher.new(url: Rails.application.config.fetcher_url)
 
   collection_druid=collection_druid.gsub('druid:','')
 
   indexer.index(collection_druid,{target=>true})
   log my_logger,"Indexed collection: #{collection_druid}"
 
-  druids = fetcher.druid_array(fetcher.get_collection(collection_druid, {}))
+  druids = fetcher.druids_from_collection(collection_druid)
 
   log my_logger,"** Found #{druids.size} members of the collection"
 

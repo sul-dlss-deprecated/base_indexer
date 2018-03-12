@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BaseIndexer::MainIndexerEngine do
+RSpec.describe BaseIndexer::MainIndexerEngine do
   before :all do
     DiscoveryIndexer::PURL_DEFAULT = 'https://purl.stanford.edu'
   end
